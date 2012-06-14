@@ -1,0 +1,12 @@
+This project tries to build an object oriented structure for html in PHP.
+
+To include the sourcecode in your project just require
+'<PAHT_TO_THIS_PROJECT>/de/maxschuster/htmlhaamr/inc.htmlhaamr.php'.
+
+Or you can create a phar form this project. Just run the make.php an you should
+see a new folder called "phar" in the projects root folder. Inside this folder
+You will find a "htmlhaamr.phar". If you are running the script with a
+webbrowser you could call it with the GET parameter "download"
+(http://localhost/htmlhaamr/make.php?download) to automaticly download the phar.
+
+TODO: Write more and check spelling ;-)
