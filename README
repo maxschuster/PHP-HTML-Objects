@@ -20,7 +20,7 @@ $link = new tag\A('Visit Google!');
 $div->addContent($link);
 $div->addAttribute(new Attribute('style', 'background:#ccc'));
 $link->setHref('http://www.google.de/');
-$link->setOnClick("return confirm('Want to Visit Google in a new Tab?');");
+$link->setOnClick("return confirm('Want to visit Google in a new tab?');");
 $link->setTarget(tag\A::TARGET_BLANK);
 
 $webPage->body->addContent($div);
@@ -43,7 +43,7 @@ Will create the following output:
 </head>
 <body>
 <div style="background:#ccc">
-<a href="http://www.google.de/" onclick="return confirm('Want to Visit Google in a new Tab?');" target="_blank">
+<a href="http://www.google.de/" onclick="return confirm('Want to visit Google in a new tab?');" target="_blank">
 Visit Google!
 </a>
 
