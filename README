@@ -4,56 +4,55 @@ Requires PHP 5.3
 
 ################################################################################
 Short example:
-``
-<?php
 
-require 'de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
+    <?php
 
-use de\mschuster\htmlhaamr\WebPage;
-use de\mschuster\htmlhaamr\tag;
-use de\mschuster\htmlhaamr\Attribute;
+    require 'de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
 
-$webPage = new WebPage();
+    use de\mschuster\htmlhaamr\WebPage;
+    use de\mschuster\htmlhaamr\tag;
+    use de\mschuster\htmlhaamr\Attribute;
 
-$div = new tag\Div();
-$link = new tag\A('Visit Google!');
-$div->addContent($link);
-$div->addAttribute(new Attribute('style', 'background:#ccc'));
-$link->setHref('http://www.google.de/');
-$link->setOnClick("return confirm('Want to visit Google in a new tab?');");
-$link->setTarget(tag\A::TARGET_BLANK);
+    $webPage = new WebPage();
 
-$webPage->body->addContent($div);
-echo $webPage;
+    $div = new tag\Div();
+    $link = new tag\A('Visit Google!');
+    $div->addContent($link);
+    $div->addAttribute(new Attribute('style', 'background:#ccc'));
+    $link->setHref('http://www.google.de/');
+    $link->setOnClick("return confirm('Want to visit Google in a new tab?');");
+    $link->setTarget(tag\A::TARGET_BLANK);
 
-?>
-``
+    $webPage->body->addContent($div);
+    echo $webPage;
+
+    ?>
 
 Will create the following output:
-``
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="generator" content="PHP htmlhaamr" />
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
 
-</head>
-<body>
-<div style="background:#ccc">
-<a href="http://www.google.de/" onclick="return confirm('Want to visit Google in a new tab?');" target="_blank">
-Visit Google!
-</a>
+    <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="generator" content="PHP htmlhaamr" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
 
-</div>
+    </head>
+    <body>
+    <div style="background:#ccc">
+    <a href="http://www.google.de/" onclick="return confirm('Want to visit Google in a new tab?');" target="_blank">
+    Visit Google!
+    </a>
 
-</body>
+    </div>
 
-</html>
-``
+    </body>
+
+    </html>
+
 ################################################################################
 
 Working examples can be found in index.php and simpleexample.php
