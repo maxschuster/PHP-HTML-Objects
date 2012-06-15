@@ -29,9 +29,18 @@ abstract class DocType {
     protected $useXmlPrefix = false;
     protected $xmlPrefix = '<?xml version="1.0" standalone="yes"%s ?>';
     protected $encoding = '';
+    protected $closeTagsWithSlash = true;
 
     public function setEncoding($encoding) {
         $this->encoding = $encoding;
+    }
+    
+    /**
+     * Returns true if SelfClosingElements should be closed with a slash
+     * @return boolean
+     */
+    public function getCloseTagsWithSlash() {
+        return $this->closeTagsWithSlash;
     }
     
     protected function getXmlPrefix() {

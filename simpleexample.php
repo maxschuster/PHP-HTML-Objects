@@ -5,9 +5,13 @@ require 'de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
 use de\maxschuster\htmlhaamr\WebPage;
 use de\maxschuster\htmlhaamr\tag;
 use de\maxschuster\htmlhaamr\Attribute;
+use de\maxschuster\htmlhaamr\doctype\HtmlTransitional;
 
-// Create the webpage
-$webPage = new WebPage();
+// Create a HTML5 doctype
+$doctype = new HtmlTransitional();
+
+// Create the webpage with the doctype
+$webPage = new WebPage($doctype);
 
 // Create a new div
 $div = new tag\Div();

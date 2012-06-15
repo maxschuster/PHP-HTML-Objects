@@ -31,7 +31,7 @@ abstract class SelfClosingElement extends Element {
      * @return string
      */
     public function __toString() {
-        return sprintf("<%s %s />\n", $this->tagname, $this->attributesToString());
+        return sprintf(WebPage::$closeHtmlTagsWithSlash ? "<%s %s />\n" : "<%s %s>\n", $this->tagname, $this->attributesToString());
     }
 
 }

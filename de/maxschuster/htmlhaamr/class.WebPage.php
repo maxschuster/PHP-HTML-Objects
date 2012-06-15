@@ -35,6 +35,8 @@ use de\maxschuster\htmlhaamr\doctype\XHtmlTransitional;
  * @package htmlhaamr
  */
 class WebPage {
+    public static $closeHtmlTagsWithSlash = true;
+    
     /**
      * The pages HTML block
      * @var Html 
@@ -125,7 +127,6 @@ class WebPage {
      * Fills the properties of this class with some default values.
      */
     public function __construct(DocType $docType = null, $encoding = 'UTF-8') {
-        $this->doctype = $docType ? $docType : new XHtmlTransitional();
         $this->html = new Html();
         $this->body = new Body();
         $this->head = new Head();
@@ -134,6 +135,7 @@ class WebPage {
         $this->setMetaGenerator('PHP htmlhaamr');
         $this->setMetaContentScriptType('text/javascript');
         $this->setMetaContentStyleType('text/css');
+        $this->setDoctype($docType ? $docType : new XHtmlTransitional());
     }
 
     /**
@@ -162,6 +164,7 @@ class WebPage {
      */
     public function setDoctype(DocType $doctype) {
         $doctype->setEncoding($this->encoding);
+        self::$closeHtmlTagsWithSlash = $doctype->getCloseTagsWithSlash();
         $this->doctype = $doctype;
     }
 
