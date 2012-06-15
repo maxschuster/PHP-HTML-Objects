@@ -29,12 +29,12 @@ $webPage->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.mi
 
 $startTime = microtime(true);
 
-for ($i = 0; $i < 1000; $i++) {
+for ($i = 0; $i < 10000; $i++) {
     $div = new tag\Div();
-    $content = new tag\A('Hello World! (' . $i . ')');
-    $div->addContent($content);
-    $content->setHref('http://www.google.com');
-    $content->setOnClick("alert('Computer sagt: NEEEEEEIN'); return false;");
+    $link = new tag\A('Hello World! (' . $i . ')');
+    $div->addContent($link);
+    $link->setHref('http://www.google.com');
+    $link->setOnClick("alert('Computer sagt: NEEEEEEIN'); return false;");
     $div->addAttribute(new Attribute('style', 'margin: 5px; background: #ccc;'));
     $div->setClass('test-class');
     $webPage->body->addContent($div);

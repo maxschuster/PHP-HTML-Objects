@@ -1,5 +1,61 @@
 This project tries to build an object oriented structure for html in PHP.
 
+Requires PHP 5.3
+
+################################################################################
+Short example:
+
+<?php
+
+require 'de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
+
+use de\mschuster\htmlhaamr\WebPage;
+use de\mschuster\htmlhaamr\tag;
+use de\mschuster\htmlhaamr\Attribute;
+
+$webPage = new WebPage();
+
+$div = new tag\Div();
+$link = new tag\A('Visit Google!');
+$div->addContent($link);
+$div->addAttribute(new Attribute('style', 'background:#ccc'));
+$link->setHref('http://www.google.de/');
+$link->setOnClick("return confirm('Want to Visit Google in a new Tab?');");
+$link->setTarget(tag\A::TARGET_BLANK);
+
+$webPage->body->addContent($div);
+echo $webPage;
+
+?>
+
+Will create the following output:
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="PHP htmlhaamr" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+
+</head>
+<body>
+<div style="background:#ccc">
+<a href="http://www.google.de/" onclick="return confirm('Want to Visit Google in a new Tab?');" target="_blank">
+Visit Google!
+</a>
+
+</div>
+
+</body>
+
+</html>
+################################################################################
+
+Working examples can be found in index.php and simpleexample.php
+
 To include the sourcecode in your project just require
 '<PAHT_TO_THIS_PROJECT>/de/maxschuster/htmlhaamr/inc.htmlhaamr.php'.
 
@@ -8,7 +64,5 @@ see a new folder called "phar" in the projects root folder. Inside this folder
 You will find a "htmlhaamr.phar". If you are running the script with a
 webbrowser you could call it with the GET parameter "download"
 (http://localhost/htmlhaamr/make.php?download) to automaticly download the phar.
-
-An example can be found in index.php
 
 TODO: Write more and check spelling ;-)

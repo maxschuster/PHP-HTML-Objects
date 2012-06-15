@@ -27,10 +27,15 @@ use de\mschuster\htmlhaamr\Attribute;
  * @package htmlhaamr
  */
 class A extends ContainigElement {
-
+    const TARGET_BLANK = '_blank';
+    const TARGET_TOP = '_top';
+    const TARGET_SELF = '_self';
+    const TARGET_PARENT = '_parent';
+    
     protected $href;
     protected $alt;
     protected $title;
+    protected $target;
     protected $tagname = 'a';
     
     public function setJavascript($js) {
@@ -56,6 +61,11 @@ class A extends ContainigElement {
     public function setTitle($val) {
         $this->title = new Attribute('title', $val);
         $this->addAttribute($this->title);
+    }
+    
+    public function setTarget($val) {
+        $this->target = new Attribute('target', $val);
+        $this->addAttribute($this->target);
     }
 
 }
