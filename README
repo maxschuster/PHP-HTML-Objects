@@ -9,9 +9,9 @@ Short example:
 
     require 'de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
 
-    use de\mschuster\htmlhaamr\WebPage;
-    use de\mschuster\htmlhaamr\tag;
-    use de\mschuster\htmlhaamr\Attribute;
+    use de\maxschuster\htmlhaamr\WebPage;
+    use de\maxschuster\htmlhaamr\tag;
+    use de\maxschuster\htmlhaamr\Attribute;
 
     $webPage = new WebPage();
 

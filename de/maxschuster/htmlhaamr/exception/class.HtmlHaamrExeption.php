@@ -1,13 +1,13 @@
 <?php
 
-namespace de\mschuster\htmlhaamr\exception;
+namespace de\maxschuster\htmlhaamr\exception;
 
 use \Exception;
 
 /**
  * Description of class
  *
- * @author mschuster
+ * @author maxschuster
  */
 class HtmlHaamrExeption extends Exception {
     

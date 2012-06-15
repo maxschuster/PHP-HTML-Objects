@@ -16,14 +16,14 @@
  * limitations under the License.
  */
 
-namespace de\mschuster\htmlhaamr\tag\ext;
+namespace de\maxschuster\htmlhaamr\tag\ext;
 
-use de\mschuster\htmlhaamr\tag\Link;
+use de\maxschuster\htmlhaamr\tag\Link;
 
 /**
  * Description of class
  *
- * @author mschuster
+ * @author maxschuster
  */
 class LinkStylesheet extends Link {
     

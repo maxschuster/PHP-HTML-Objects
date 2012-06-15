@@ -5,16 +5,16 @@
  * and open the template in the editor.
  */
 
-namespace de\mschuster\htmlhaamr\js\jquery;
+namespace de\maxschuster\htmlhaamr\js\jquery;
 
-use de\mschuster\htmlhaamr\tag\Script;
-use de\mschuster\htmlhaamr\js\jquery\jQueryElement;
-use de\mschuster\htmlhaamr\Element;
+use de\maxschuster\htmlhaamr\tag\Script;
+use de\maxschuster\htmlhaamr\js\jquery\jQueryElement;
+use de\maxschuster\htmlhaamr\Element;
 
 /**
  * Description of class
  *
- * @author mschuster
+ * @author maxschuster
  */
 class jQueryContainer extends Script {
     /**

@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-namespace de\mschuster\htmlhaamr\tag;
+namespace de\maxschuster\htmlhaamr\tag;
 
-use de\mschuster\htmlhaamr\SelfClosingElement;
-use de\mschuster\htmlhaamr\Attribute;
+use de\maxschuster\htmlhaamr\SelfClosingElement;
+use de\maxschuster\htmlhaamr\Attribute;
 
 /**
  * This class has no Description...

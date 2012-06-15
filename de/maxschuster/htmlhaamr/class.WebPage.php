@@ -16,18 +16,18 @@
  * limitations under the License.
  */
 
-namespace de\mschuster\htmlhaamr;
+namespace de\maxschuster\htmlhaamr;
 
-use de\mschuster\htmlhaamr\tag\Html;
-use de\mschuster\htmlhaamr\tag\Head;
-use de\mschuster\htmlhaamr\tag\Body;
-use de\mschuster\htmlhaamr\tag\Title;
-use de\mschuster\htmlhaamr\DocType;
-use de\mschuster\htmlhaamr\tag\Meta;
-use de\mschuster\htmlhaamr\exception\HtmlHaamrExeption;
-use de\mschuster\htmlhaamr\tag\Script;
-use de\mschuster\htmlhaamr\tag\ext\LinkStylesheet;
-use de\mschuster\htmlhaamr\js\jquery\jQueryContainer;
+use de\maxschuster\htmlhaamr\tag\Html;
+use de\maxschuster\htmlhaamr\tag\Head;
+use de\maxschuster\htmlhaamr\tag\Body;
+use de\maxschuster\htmlhaamr\tag\Title;
+use de\maxschuster\htmlhaamr\DocType;
+use de\maxschuster\htmlhaamr\tag\Meta;
+use de\maxschuster\htmlhaamr\exception\HtmlHaamrExeption;
+use de\maxschuster\htmlhaamr\tag\Script;
+use de\maxschuster\htmlhaamr\tag\ext\LinkStylesheet;
+use de\maxschuster\htmlhaamr\js\jquery\jQueryContainer;
 
 /**
  * Represents the whole webpage with its parts (the html, body and head blocks)

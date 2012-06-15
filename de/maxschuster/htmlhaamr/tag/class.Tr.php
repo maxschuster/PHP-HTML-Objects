@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-namespace de\mschuster\htmlhaamr\tag;
+namespace de\maxschuster\htmlhaamr\tag;
 
-use de\mschuster\htmlhaamr\ContainigElement;
+use de\maxschuster\htmlhaamr\ContainigElement;
 
 /**
  * This class has no Description...

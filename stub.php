@@ -16,6 +16,6 @@
  * limitations under the License.
  */
 
-require_once 'de/mschuster/htmlhaamr/inc.htmlhaamr.php';
+require_once 'de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
 __HALT_COMPILER();
 ?>

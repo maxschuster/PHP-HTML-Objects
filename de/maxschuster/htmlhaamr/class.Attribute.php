@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-namespace de\mschuster\htmlhaamr;
+namespace de\maxschuster\htmlhaamr;
 
 /**
  * This class has no Description...

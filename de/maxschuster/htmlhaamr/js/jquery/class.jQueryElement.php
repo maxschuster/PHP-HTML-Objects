@@ -5,12 +5,12 @@
  * and open the template in the editor.
  */
 
-namespace de\mschuster\htmlhaamr\js\jquery;
+namespace de\maxschuster\htmlhaamr\js\jquery;
 
 /**
  * Description of class
  *
- * @author mschuster
+ * @author maxschuster
  */
 class jQueryElement {
 

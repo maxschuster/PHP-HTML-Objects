@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-namespace de\mschuster\htmlhaamr;
+namespace de\maxschuster\htmlhaamr;
 
 /**
  * Base class for all HTML elements.

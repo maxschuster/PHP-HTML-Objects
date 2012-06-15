@@ -5,12 +5,12 @@
  * and open the template in the editor.
  */
 
-namespace de\mschuster\htmlhaamr\js\jquery\event;
+namespace de\maxschuster\htmlhaamr\js\jquery\event;
 
 /**
  * Description of class
  *
- * @author mschuster
+ * @author maxschuster
  */
 class jQueryEventHandler {
     /**
