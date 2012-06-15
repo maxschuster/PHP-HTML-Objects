@@ -16,23 +16,18 @@
  * limitations under the License.
  */
 
-namespace de\maxschuster\htmlhaamr;
+namespace de\maxschuster\htmlhaamr\doctype;
 
 /**
- * Base class for all HTML elements that can not contain content
- * @author Max Schuster <m.schuster@neo7even.de>
- * @abstract
- * @package htmlhaamr
+ * Description of HtmlTransitional
+ *
+ * @author mschuster
  */
-abstract class SelfClosingElement extends Element {
+class HtmlTransitional extends DocType {
 
-    /**
-     * Returns this element as String
-     * @return string
-     */
-    public function __toString() {
-        return sprintf("<%s %s />\n", $this->tagname, $this->attributesToString());
-    }
+    protected $doctype = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd">';
+    protected $useXmlPrefix = true;
 
 }
 

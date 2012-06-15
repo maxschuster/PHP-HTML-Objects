@@ -25,7 +25,7 @@ require_once __DIR__ . '/class.Attribute.php';
 require_once __DIR__ . '/class.SelfClosingElement.php';
 require_once __DIR__ . '/class.ContainingElement.php';
 require_once __DIR__ . '/class.WebPage.php';
-require_once __DIR__ . '/class.DocType.php';
+//require_once __DIR__ . '/class.DocType.php';
 
 require_once __DIR__ . '/tag/class.Html.php';
 require_once __DIR__ . '/tag/class.Head.php';
@@ -63,6 +63,12 @@ require_once __DIR__ . '/tag/ext/class.InputButton.php';
 require_once __DIR__ . '/tag/ext/class.LinkStylesheet.php';
 
 require_once __DIR__ . '/exception/class.HtmlHaamrExeption.php';
+
+require_once __DIR__ . '/doctype/class.DocType.php';
+require_once __DIR__ . '/doctype/class.Html5.php';
+require_once __DIR__ . '/doctype/class.HtmlTransitional.php';
+require_once __DIR__ . '/doctype/class.XHtmlTransitional.php';
+
 /*
   // Droped developing this
   require_once __DIR__.'/js/jquery/class.jQueryContainer.php';

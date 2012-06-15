@@ -24,11 +24,34 @@ namespace de\maxschuster\htmlhaamr;
  * @package htmlhaamr
  */
 abstract class Element {
-
+    /**
+     * Array containing the elements attributes
+     * @var Attribute[string]
+     */
     protected $attributes = array();
+    
+    /**
+     * The elements tag name
+     * @var string
+     */
     protected $tagname = 'element';
+    
+    /**
+     * The elements id
+     * @var Attribute
+     */
     protected $id;
+    
+    /**
+     * The elements class
+     * @var Attribute
+     */
     protected $class;
+    
+    /**
+     * Global unique id storage
+     * @var integer
+     */
     protected static $idStore = 1;
 
     /**
@@ -169,7 +192,12 @@ abstract class Element {
             $this->addAttributes($attributes);
         }
     }
-
+    
+    /**
+     * Returns the element as string
+     * @return string HTML
+     * @abstract
+     */
     abstract public function __toString();
 
     /**
@@ -341,47 +369,83 @@ abstract class Element {
         $this->onLoad = new Attribute('onload', $onLoad);
         $this->addAttribute($this->onLoad);
     }
-
+    
+    /**
+     * Sets the onmousedown js for this element
+     * @param string $onMouseDown Some js code
+     */
     public function setOnMouseDown($onMouseDown) {
         $this->onMouseDown = new Attribute('onmousedown', $onMouseDown);
         $this->addAttribute($this->onMouseDown);
     }
-
+    
+    /**
+     * Sets the onmousemove js for this element
+     * @param string $onMouseMove Some js code
+     */
     public function setOnMouseMove($onMouseMove) {
         $this->onMouseMove = new Attribute('onmousemove', $onMouseMove);
         $this->addAttribute($this->onMouseMove);
     }
-
+    
+    /**
+     * Sets the onmouseout js for this element
+     * @param string $onMouseOut Some js code
+     */
     public function setOnMouseOut($onMouseOut) {
         $this->onMouseOut = new Attribute('onmouseout', $onMouseOut);
         $this->addAttribute($this->onMouseOut);
     }
-
+    
+    /**
+     * Sets the onmouseover js for this element
+     * @param string $onMouseOver Some js code
+     */
     public function setOnMouseOver($onMouseOver) {
         $this->onMouseOver = new Attribute('onmouseover', $onMouseOver);
         $this->addAttribute($this->onMouseOver);
     }
-
+    
+    /**
+     * Sets the onmouseup js for this element
+     * @param string $onMouseUp Some js code
+     */
     public function setOnMouseUp($onMouseUp) {
         $this->onMouseUp = new Attribute('onmouseup', $onMouseUp);
         $this->addAttribute($this->onMouseUp);
     }
-
+    
+    /**
+     * Sets the onreset js for this element
+     * @param string $onReset Some js code
+     */
     public function setOnReset($onReset) {
         $this->onReset = new Attribute('onreset', $onReset);
         $this->addAttribute($this->onReset);
     }
-
+    
+    /**
+     * Sets the onselect js for this element
+     * @param string $onSelect Some js code
+     */
     public function setOnSelect($onSelect) {
         $this->onSelect = new Attribute('onselect', $onSelect);
         $this->addAttribute($this->onSelect);
     }
-
+    
+    /**
+     * Sets the onsubmit js for this element
+     * @param string $onSubmit Some js code
+     */
     public function setOnSubmit($onSubmit) {
         $this->onSubmit = new Attribute('onsubmit', $onSubmit);
         $this->addAttribute($this->onSubmit);
     }
 
+    /**
+     * Sets the onunload js for this element
+     * @param string $onUnload Some js code
+     */
     public function setOnUnload($onUnload) {
         $this->onUnload = new Attribute('onunload', $onUnload);
         $this->addAttribute($this->onUnload);

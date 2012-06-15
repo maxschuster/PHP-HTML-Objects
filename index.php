@@ -16,27 +16,45 @@
  * limitations under the License.
  */
 
+// Include htmlhaamr
 require 'de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
 
 use de\maxschuster\htmlhaamr\WebPage;
 use de\maxschuster\htmlhaamr\tag;
 use de\maxschuster\htmlhaamr\Attribute;
+use de\maxschuster\htmlhaamr\doctype\Html5;
 
-$webPage = new WebPage();
+// Create a HTML5 doctype
+$html5DocType = new Html5();
+
+// Create a new webpage with the doctype and UTF-8 encoding
+$webPage = new WebPage($html5DocType, 'UTF-8');
+
+// Set the pages author
 $webPage->setMetaAuthor('Max Schuster');
-//$webPage->addStylesheet('acssfile.css');
+
+// Add the jquery js-file
 $webPage->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
 
 $startTime = microtime(true);
 
-for ($i = 0; $i < 10000; $i++) {
+for ($i = 0; $i < 100; $i++) {
+    // Create a new div
     $div = new tag\Div();
+    
+    // Create a new Link
     $link = new tag\A('Hello World! (' . $i . ')');
+    
+    // Add the link to the div
     $div->addContent($link);
+    
+    // Set some options of the link
     $link->setHref('http://www.google.com');
     $link->setOnClick("alert('Computer sagt: NEEEEEEIN'); return false;");
     $div->addAttribute(new Attribute('style', 'margin: 5px; background: #ccc;'));
     $div->setClass('test-class');
+    
+    // Add the div to the webpages body tag
     $webPage->body->addContent($div);
 }
 
@@ -44,7 +62,7 @@ $endTime = microtime(true);
 
 $totalTime = $endTime - $startTime;
 
-$webPage->body->addContent('<p>Total time: ' . $totalTime . ' s</p>');
+$webPage->body->addContent(new tag\P('Total time: ' . $totalTime . ' s'))   ;
 
 echo $webPage;
 ?>

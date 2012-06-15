@@ -1,10 +1,13 @@
+HTML Haamr
+==========
+
 This project tries to build an object oriented structure for html in PHP.
 
 Requires PHP 5.3
 
-################################################################################
-Short example:
 
+Short example:
+--------------
     <?php
 
     require 'de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
@@ -29,6 +32,7 @@ Short example:
     ?>
 
 Will create the following output:
+---------------------------------
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -52,8 +56,6 @@ Will create the following output:
     </body>
 
     </html>
-
-################################################################################
 
 Working examples can be found in index.php and simpleexample.php
 

@@ -22,12 +22,11 @@ use de\maxschuster\htmlhaamr\tag\Html;
 use de\maxschuster\htmlhaamr\tag\Head;
 use de\maxschuster\htmlhaamr\tag\Body;
 use de\maxschuster\htmlhaamr\tag\Title;
-use de\maxschuster\htmlhaamr\DocType;
+use de\maxschuster\htmlhaamr\doctype\DocType;
 use de\maxschuster\htmlhaamr\tag\Meta;
-use de\maxschuster\htmlhaamr\exception\HtmlHaamrExeption;
 use de\maxschuster\htmlhaamr\tag\Script;
 use de\maxschuster\htmlhaamr\tag\ext\LinkStylesheet;
-use de\maxschuster\htmlhaamr\js\jquery\jQueryContainer;
+use de\maxschuster\htmlhaamr\doctype\XHtmlTransitional;
 
 /**
  * Represents the whole webpage with its parts (the html, body and head blocks)
@@ -36,19 +35,6 @@ use de\maxschuster\htmlhaamr\js\jquery\jQueryContainer;
  * @package htmlhaamr
  */
 class WebPage {
-    /**
-     * UTF-8 Encoding type
-     * @const ENCODING_UTF8 Encoding type
-     */
-
-    const ENCODING_UTF8 = 1;
-
-    /**
-     * ISO-8859-1 Encoding type
-     * @const ENCODING_LATIN1 Encoding type
-     */
-    const ENCODING_LATIN1 = 2;
-
     /**
      * The pages HTML block
      * @var Html 
@@ -72,6 +58,7 @@ class WebPage {
      * @var Title
      */
     public $title;
+    public $encoding;
 
     /**
      * Content-Type meta tag
@@ -137,57 +124,45 @@ class WebPage {
      * Constructor
      * Fills the properties of this class with some default values.
      */
-    public function __construct() {
-        $this->doctype = new DocType();
+    public function __construct(DocType $docType = null, $encoding = 'UTF-8') {
+        $this->doctype = $docType ? $docType : new XHtmlTransitional();
         $this->html = new Html();
         $this->body = new Body();
         $this->head = new Head();
         $this->html->addContent($this->head, $this->body);
-        $this->setEncoding(self::ENCODING_UTF8);
-        $this->setDocType(DocType::DOCTYPE_XHTML_TRANSITIONAL);
+        $this->encoding = $encoding;
         $this->setMetaGenerator('PHP htmlhaamr');
         $this->setMetaContentScriptType('text/javascript');
         $this->setMetaContentStyleType('text/css');
-        //$this->jQueryContainer = new jQueryContainer();
-        $this->head->addContent($this->jQueryContainer);
-    }
-
-    /**
-     * Sets the Doctype
-     * @param int $type 
-     */
-    public function setDocType($type) {
-        $this->doctype->setType($type);
     }
 
     /**
      * Returns this page as string
+     * Prints the encoding headers, too!
      * @return string
      */
     public function __toString() {
+        $this->setMetaContentType('text/html; charset=' . $this->encoding);
+        $this->doctype->setEncoding($this->encoding);
+        header('Content-type: text/html; charset=' . $this->encoding);
         return sprintf("%s\n%s", $this->doctype, $this->html);
     }
 
     /**
-     * Sets the encoding of the page.
-     * Possible values are WebPage::ENCODING_*
-     * @param int $encodingType 
+     * Sets the encoding of the page
+     * @param string $encodingType 
      */
-    public function setEncoding($encodingType) {
-        $this->doctype->setEncoding($encodingType);
-        switch ($encodingType) {
-            case self::ENCODING_UTF8:
-                $this->setMetaContentType('text/html; charset=UTF-8');
-                header('Content-type: text/html; charset=UTF-8');
-                break;
-            case self::ENCODING_LATIN1:
-                $this->setMetaContentType('text/html; charset=ISO-8859-1');
-                header('Content-type: text/html; charset=ISO-8859-1');
-                break;
-            default:
-                throw new htmlhaamrExeption('Unknown encoding type \'' . $encodingType . '\'');
-                break;
-        }
+    public function setEncoding($encoding) {
+        $this->encoding = $encoding;
+    }
+
+    /**
+     * Sets the doctype of the page
+     * @param DocType $doctype
+     */
+    public function setDoctype(DocType $doctype) {
+        $doctype->setEncoding($this->encoding);
+        $this->doctype = $doctype;
     }
 
     /**
