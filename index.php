@@ -24,7 +24,7 @@ use de\mschuster\htmlhaamr\Attribute;
 
 $webPage = new WebPage();
 $webPage->setMetaAuthor('Max Schuster');
-$webPage->addStylesheet('http://de.wikipedia.org/bits.wikimedia.org/de.wikipedia.org/load.php?debug=false&amp;lang=de&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*');
+//$webPage->addStylesheet('acssfile.css');
 $webPage->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
 
 $startTime = microtime(true);

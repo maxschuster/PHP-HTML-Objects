@@ -9,4 +9,6 @@ You will find a "htmlhaamr.phar". If you are running the script with a
 webbrowser you could call it with the GET parameter "download"
 (http://localhost/htmlhaamr/make.php?download) to automaticly download the phar.
 
+An example can be found in index.php
+
 TODO: Write more and check spelling ;-)
