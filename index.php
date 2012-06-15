@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-require 'de/mschuster/htmlhaamr/inc.htmlhaamr.php';
+require 'de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
 
 use de\mschuster\htmlhaamr\WebPage;
 use de\mschuster\htmlhaamr\tag;

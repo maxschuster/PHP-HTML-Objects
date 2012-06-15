@@ -18,7 +18,7 @@
 
 define('EXPORT_DIR', './phar');
 define('EXPORT_FILE', EXPORT_DIR . '/htmlhaamr.phar');
-define('INPUT_FOLDER', 'de/mschuster/htmlhaamr');
+define('INPUT_FOLDER', 'de/maxschuster/htmlhaamr');
 
 if (file_exists(EXPORT_FILE)) {
     Phar::unlinkArchive(EXPORT_FILE);
@@ -35,7 +35,7 @@ $p->addFile('stub.php');
 if (is_dir(INPUT_FOLDER)) {
     echo "Targetfolder exisits<br />\n";
 } else {
-    die("Targetfolder does not exisit!<br />\n");
+    die("Targetfolder (".INPUT_FOLDER.") does not exisit!<br />\n");
 }
 echo "Adding files:<br />\n";
 $rd = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(INPUT_FOLDER));
