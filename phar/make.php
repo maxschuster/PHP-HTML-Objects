@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-define('EXPORT_DIR', './phar');
+define('EXPORT_DIR', './output');
 define('EXPORT_FILE', EXPORT_DIR . '/htmlhaamr.phar');
-define('INPUT_FOLDER', 'de/maxschuster/htmlhaamr');
+define('INPUT_FOLDER', '../de/maxschuster/htmlhaamr');
 
 if (file_exists(EXPORT_FILE)) {
     Phar::unlinkArchive(EXPORT_FILE);
@@ -33,16 +33,16 @@ $p->compressFiles(Phar::GZ);
 $p->setSignatureAlgorithm(Phar::SHA1);
 $p->addFile('stub.php');
 if (is_dir(INPUT_FOLDER)) {
-    echo "Targetfolder exisits<br />\n";
+    echo "INPUT_FOLDER exisits (".INPUT_FOLDER.") <br />\n";
 } else {
-    die("Targetfolder (".INPUT_FOLDER.") does not exisit!<br />\n");
+    die("INPUT_FOLDER (".INPUT_FOLDER.") does not exisit!<br />\n");
 }
 echo "Adding files:<br />\n";
 $rd = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(INPUT_FOLDER));
 $files = array();
 foreach ($rd as $file) {
     $filename = $file->getFilename();
-    if ($filename{0} != '.' && !isInHiddenFolder($file->getPath())) {
+    if ($filename{0} != '.' && !isInHiddenFolder($file->getPath()))  {
         $files[$file->getPath() . "/" . $file->getFilename()] = $file->getPath() . DIRECTORY_SEPARATOR . $file->getFilename();
         echo $filePath = str_replace('\\', '/', $file->getPath() . "/" . $file->getFilename());
         echo '<br />';
@@ -65,9 +65,15 @@ if (isset($_GET['download'])) {
 
 function isInHiddenFolder($folder) {
     $folderArr = explode(DIRECTORY_SEPARATOR, $folder);
-
+    #var_dump($folderArr);
+    #die();
     foreach ($folderArr as $f) {
+        /*
         if ($f{0} == '.') {
+            return true;
+        }
+        */
+        if (preg_match('/^\.{1}\w+$/', $f)) {
             return true;
         }
     }

@@ -23,7 +23,7 @@ use de\maxschuster\htmlhaamr\Attribute;
 
 /**
  * This class has no Description...
- * @author Max Schuster <m.schuster@neo7even.de>
+ * @author Max Schuster 
  * @package htmlhaamr
  */
 class Select extends ContainigElement {

@@ -20,7 +20,7 @@ namespace de\maxschuster\htmlhaamr\doctype;
 
 /**
  * This class has no Description...
- * @author Max Schuster <m.schuster@neo7even.de>
+ * @author Max Schuster 
  * @package htmlhaamr
  */
 abstract class DocType {

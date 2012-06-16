@@ -20,7 +20,7 @@ namespace de\maxschuster\htmlhaamr;
 
 /**
  * Base class for all HTML elements that can contain other HTML elements
- * @author Max Schuster <m.schuster@neo7even.de>
+ * @author Max Schuster 
  * @package htmlhaamr 
  * @abstract
  */
@@ -43,7 +43,7 @@ abstract class ContainigElement extends Element {
      * @var boolean 
      */
     protected $hasContent = false;
-    
+
     public function __construct($content = false, $id = false, $class = false, $attributes = false) {
         if ($content) {
             $this->addContent($content);
@@ -56,9 +56,7 @@ abstract class ContainigElement extends Element {
      * @return string
      */
     public function __toString() {
-        return sprintf(
-            $this->hasContent ? "<%s%s%s>\n%s\n</%s>\n" : "<%s%s%s>%s</%s>\n", $this->tagname, $this->attributesCount() > 0 ? ' ' : '', $this->attributesToString(), implode('', $this->content), $this->tagname
-        );
+        return sprintf($this->hasContent ? "<%s%s%s>\n%s\n</%s>\n" : "<%s%s%s>%s</%s>\n", $this->tagname, $this->attributesCount() > 0 ? ' ' : '', $this->attributesToString(), implode('', $this->content), $this->tagname);
     }
 
     /**
@@ -95,6 +93,7 @@ abstract class ContainigElement extends Element {
         $this->hasContent = false;
         $this->contentLength = 0;
     }
+
 }
 
 ?>

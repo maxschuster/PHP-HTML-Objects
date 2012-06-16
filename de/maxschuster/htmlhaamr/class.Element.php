@@ -20,7 +20,7 @@ namespace de\maxschuster\htmlhaamr;
 
 /**
  * Base class for all HTML elements.
- * @author Max Schuster <m.schuster@neo7even.de>
+ * @author Max Schuster 
  * @package htmlhaamr
  */
 abstract class Element {

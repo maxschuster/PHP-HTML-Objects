@@ -26,12 +26,14 @@ use de\maxschuster\htmlhaamr\doctype\DocType;
 use de\maxschuster\htmlhaamr\tag\Meta;
 use de\maxschuster\htmlhaamr\tag\Script;
 use de\maxschuster\htmlhaamr\tag\ext\LinkStylesheet;
-use de\maxschuster\htmlhaamr\doctype\XHtmlTransitional;
+use de\maxschuster\htmlhaamr\doctype\XHtml10Transitional;
+use de\maxschuster\htmlhaamr\tag\Link;
+use de\maxschuster\htmlhaamr\exception\HtmlHaamrExeption;
 
 /**
  * Represents the whole webpage with its parts (the html, body and head blocks)
  * and offers some shortcuts to set different options of the page
- * @author Max Schuster <m.schuster@neo7even.de>
+ * @author Max Schuster 
  * @package htmlhaamr
  */
 class WebPage {
@@ -109,6 +111,19 @@ class WebPage {
      * @var Meta 
      */
     protected $metaContentStyleType = false;
+    
+    /**
+     * Pages shortcut icon
+     * for IE...
+     * @var Link
+     */
+    protected $shortcutIcon;
+    
+    /**
+     * Pages icon
+     * @var Link
+     */
+    protected $icon;
 
     /**
      * Pages doctype
@@ -120,7 +135,7 @@ class WebPage {
      * jQueryContainer
      * @var jQueryCointainer
      */
-    public $jQueryContainer;
+    //public $jQueryContainer;
 
     /**
      * Constructor
@@ -135,7 +150,7 @@ class WebPage {
         $this->setMetaGenerator('PHP htmlhaamr');
         $this->setMetaContentScriptType('text/javascript');
         $this->setMetaContentStyleType('text/css');
-        $this->setDoctype($docType ? $docType : new XHtmlTransitional());
+        $this->setDoctype($docType ? $docType : new XHtml10Transitional());
     }
 
     /**
@@ -290,10 +305,18 @@ class WebPage {
      * Adds a script url to the page
      * @param string $src 
      */
-    public function addScript($src) {
+    public function addScriptSrc($src) {
         $script = new Script();
         $script->setSrc($src);
         $this->head->addContent($script);
+    }
+    
+    /**
+     * Adds some js code to the pages header
+     * @param string $jsCode Code to add
+     */
+    public function addScript($jsCode) {
+        $this->head->addContent(new Script($jsCode));
     }
 
     /**
@@ -304,6 +327,38 @@ class WebPage {
         $style = new LinkStylesheet();
         $style->setHref($href);
         $this->head->addContent($style);
+    }
+    
+    /**
+     * Set the pages favicon
+     * @param string $href Url of the favicon file
+     * @param string $mime [optional]
+     * The favicons mimetype. If not set the method
+     * will try to resolve it by the filename
+     * @throws HtmlHaamrException
+     */
+    public function setFaviconHref($href, $mime = false) {
+        if (empty($mime)) {
+            $mime = MimeAnalyser::getByUrl($href);
+            if (empty($mime)) {
+                throw new HtmlHaamrExeption('Could not resolve mimetype! Please use the $mime parameter, too');
+            }
+        }
+        if (!$this->shortcutIcon) {
+            // IE Extrawurst -.-
+            $this->shortcutIcon = new Link();
+            $this->shortcutIcon->setRel('shortcut icon');
+            $this->head->addContent($this->shortcutIcon);
+        }
+        if (!$this->icon) {
+            $this->icon = new Link();
+            $this->icon->setRel('icon');
+            $this->head->addContent($this->icon);
+        }
+        $this->shortcutIcon->setHref($href);
+        $this->shortcutIcon->setType($mime);
+        $this->icon->setHref($href);
+        $this->icon->setType($mime);
     }
 
 }

@@ -64,10 +64,12 @@ require_once __DIR__ . '/tag/ext/class.LinkStylesheet.php';
 
 require_once __DIR__ . '/exception/class.HtmlHaamrExeption.php';
 
+require_once __DIR__ . '/class.MimeAnalyser.php';
+
 require_once __DIR__ . '/doctype/class.DocType.php';
 require_once __DIR__ . '/doctype/class.Html5.php';
-require_once __DIR__ . '/doctype/class.HtmlTransitional.php';
-require_once __DIR__ . '/doctype/class.XHtmlTransitional.php';
+require_once __DIR__ . '/doctype/class.Html401Transitional.php';
+require_once __DIR__ . '/doctype/class.XHtml10Transitional.php';
 
 /*
   // Droped developing this

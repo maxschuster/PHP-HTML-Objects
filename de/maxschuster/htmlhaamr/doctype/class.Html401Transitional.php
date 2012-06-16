@@ -16,11 +16,19 @@
  * limitations under the License.
  */
 
-$date = @gmdate('YmdHis');
+namespace de\maxschuster\htmlhaamr\doctype;
 
-header("Content-Type: application/force-download");
-header('Content-Description: File Transfer');
-header('Content-disposition: attachment; filename=htmlhaamr-'.$date.'.phar');
-$f = fopen('phar/htmlhaamr.phar', 'r');
-fpassthru($f);
+/**
+ * Description of HtmlTransitional
+ *
+ * @author mschuster
+ */
+class Html401Transitional extends DocType {
+
+    protected $doctype = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">';
+    protected $closeTagsWithSlash = false;
+
+}
+
 ?>

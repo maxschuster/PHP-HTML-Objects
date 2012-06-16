@@ -17,7 +17,7 @@
  */
 
 // Include htmlhaamr
-require 'de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
+require '../de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
 
 use de\maxschuster\htmlhaamr\WebPage;
 use de\maxschuster\htmlhaamr\tag;
@@ -34,11 +34,11 @@ $webPage = new WebPage($html5DocType, 'UTF-8');
 $webPage->setMetaAuthor('Max Schuster');
 
 // Add the jquery js-file
-$webPage->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
+$webPage->addScriptSrc('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
 
 $startTime = microtime(true);
 
-for ($i = 0; $i < 100; $i++) {
+for ($i = 0; $i < 1000; $i++) {
     // Create a new div
     $div = new tag\Div();
     
@@ -50,7 +50,7 @@ for ($i = 0; $i < 100; $i++) {
     
     // Set some options of the link
     $link->setHref('http://www.google.com');
-    $link->setOnClick("alert('Computer sagt: NEEEEEEIN'); return false;");
+    $link->setOnClick('alert("Computer sagt: NEEEEEEIN"); return false;');
     $div->addAttribute(new Attribute('style', 'margin: 5px; background: #ccc;'));
     $div->setClass('test-class');
     

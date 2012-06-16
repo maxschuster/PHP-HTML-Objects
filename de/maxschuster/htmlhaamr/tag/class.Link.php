@@ -23,7 +23,7 @@ use de\maxschuster\htmlhaamr\Attribute;
 
 /**
  * This class has no Description...
- * @author Max Schuster <m.schuster@neo7even.de>
+ * @author Max Schuster 
  * @package htmlhaamr
  */
 class Link extends SelfClosingElement {
@@ -31,21 +31,27 @@ class Link extends SelfClosingElement {
     protected $rel;
     protected $href;
     protected $media;
+    protected $type;
     protected $tagname = 'link';
 
-    public function setRel($val) {
-        $this->rel = new Attribute('rel', $val);
+    public function setRel($rel) {
+        $this->rel = new Attribute('rel', $rel);
         $this->addAttribute($this->rel);
     }
 
-    public function setHref($val) {
-        $this->href = new Attribute('href', $val);
+    public function setHref($href) {
+        $this->href = new Attribute('href', $href);
         $this->addAttribute($this->href);
     }
     
-    public function setMedia($val) {
-        $this->media = new Attribute('media', $val);
+    public function setMedia($media) {
+        $this->media = new Attribute('media', $media);
         $this->addAttribute($this->media);
+    }
+    
+    public function setType($type) {
+        $this->type = new Attribute('type', $type);
+        $this->addAttribute($this->type);
     }
 
 }

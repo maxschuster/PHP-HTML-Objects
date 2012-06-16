@@ -24,7 +24,7 @@ use de\maxschuster\htmlhaamr\Element;
 
 /**
  * This class has no Description...
- * @author Max Schuster <m.schuster@neo7even.de>
+ * @author Max Schuster 
  * @package htmlhaamr
  */
 class Label extends ContainigElement {

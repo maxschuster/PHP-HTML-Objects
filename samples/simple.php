@@ -1,14 +1,14 @@
 <?php
 
-require 'de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
+require '../de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
 
 use de\maxschuster\htmlhaamr\WebPage;
 use de\maxschuster\htmlhaamr\tag;
 use de\maxschuster\htmlhaamr\Attribute;
-use de\maxschuster\htmlhaamr\doctype\HtmlTransitional;
+use de\maxschuster\htmlhaamr\doctype\Html401Transitional;
 
-// Create a HTML5 doctype
-$doctype = new HtmlTransitional();
+// Create a HTML 4.01 doctype
+$doctype = new Html401Transitional();
 
 // Create the webpage with the doctype
 $webPage = new WebPage($doctype);
@@ -30,6 +30,9 @@ $link->setTarget(tag\A::TARGET_BLANK);
 
 // Add the div to the pages content
 $webPage->body->addContent($div);
+
+// Set the pages favicon
+$webPage->setFaviconHref('res/favicon.ico');
 
 // Echo the webpage
 echo $webPage;

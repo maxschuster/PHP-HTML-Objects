@@ -17,22 +17,50 @@
  */
 
 namespace de\maxschuster\htmlhaamr;
+use de\maxschuster\htmlhaamr\exception\HtmlHaamrExeption;
 
 /**
  * This class has no Description...
- * @author Max Schuster <m.schuster@neo7even.de>
+ * @author Max Schuster 
  * @package htmlhaamr
  */
 class Attribute {
-
+    const QUOTESTYLE_SINGLE = 0;
+    const QUOTESTYLE_DOUBLE = 1;
+    
+    /**
+     * Name of the Attribute
+     * @var string
+     */
     protected $name;
+    
+    /**
+     * Attributes value
+     * @var string 
+     */
     protected $value;
+    
+    /**
+     * Attributes quote style
+     * @var string
+     */
     protected $quoteStyle;
 
-    public function __construct($name, $value, $quoteStyle = '"') {
+    public function __construct($name, $value, $quoteStyle = self::QUOTESTYLE_DOUBLE) {
         $this->name = &$name;
         $this->value = $this->htmlentities($value);
-        $this->quoteStyle = &$quoteStyle;
+        $this->setQuoteStyle($quoteStyle);
+    }
+    public function setQuoteStyle($quoteStyle) {
+        if ($quoteStyle == self::QUOTESTYLE_DOUBLE) {
+            $this->quoteStyle = '"';
+            return;
+        }
+        if ($quoteStyle == self::QUOTESTYLE_SINGLE) {
+            $this->quoteStyle = '\'';
+            return;
+        }
+        throw new HtmlHaamrExeption('Unknown quotesyle! ('.$quoteStyle.')');
     }
 
     protected function htmlentities($string) {
@@ -40,7 +68,6 @@ class Attribute {
     }
 
     public function __toString() {
-        //return $this->name . '=' . $this->quoteStyle . $this->value . $this->quoteStyle;
         return sprintf('%s=%s%s%s', $this->name, $this->quoteStyle, $this->value, $this->quoteStyle);
     }
 

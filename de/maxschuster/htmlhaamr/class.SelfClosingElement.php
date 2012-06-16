@@ -20,7 +20,7 @@ namespace de\maxschuster\htmlhaamr;
 
 /**
  * Base class for all HTML elements that can not contain content
- * @author Max Schuster <m.schuster@neo7even.de>
+ * @author Max Schuster 
  * @abstract
  * @package htmlhaamr
  */

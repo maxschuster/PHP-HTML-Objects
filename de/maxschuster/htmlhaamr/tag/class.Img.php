@@ -22,7 +22,7 @@ use de\maxschuster\htmlhaamr\SelfClosingElement;
 
 /**
  * This class has no Description...
- * @author Max Schuster <m.schuster@neo7even.de>
+ * @author Max Schuster 
  * @package htmlhaamr
  */
 class Img extends SelfClosingElement {
@@ -30,7 +30,7 @@ class Img extends SelfClosingElement {
     protected $src;
     protected $alt;
     protected $title;
-    protected $tagname = 'html';
+    protected $tagname = 'img';
 
     public function setSrc($val) {
         $this->src = new Attribute('src', $val);

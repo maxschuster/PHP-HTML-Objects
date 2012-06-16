@@ -22,7 +22,7 @@ use de\maxschuster\htmlhaamr\ContainigElement;
 
 /**
  * This class has no Description...
- * @author Max Schuster <m.schuster@neo7even.de>
+ * @author Max Schuster 
  * @package htmlhaamr
  */
 class Table extends ContainigElement {
