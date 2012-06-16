@@ -99,7 +99,7 @@ to create a phar of this project. It will be stored as
     
 If you are using a webbrowser you could use
 
-    http:/htmlhaamrhost/phar/make?download
+    http://htmlhaamrhost/phar/make?download
 
 to directly download the phar.
 
