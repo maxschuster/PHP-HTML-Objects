@@ -84,8 +84,8 @@ Supported Doctypes
 
 Extending HTML tags to build custom controls
 --------------------------------------------
-It is possible to build custom controls by extending exisiting tags
-Take this as example:
+It is possible to build custom controls by extending exisiting tags.
+Take this file as example:
 
     \de\maxschuster\htmlhaamr\flash\class.SwfElement.php
 
