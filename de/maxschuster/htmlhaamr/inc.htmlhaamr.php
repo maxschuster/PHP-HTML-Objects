@@ -54,6 +54,10 @@ require_once __DIR__ . '/tag/class.Textarea.php';
 require_once __DIR__ . '/tag/class.Option.php';
 require_once __DIR__ . '/tag/class.Select.php';
 require_once __DIR__ . '/tag/class.Title.php';
+require_once __DIR__ . '/tag/class.Iframe.php';
+require_once __DIR__ . '/tag/class.Object.php';
+require_once __DIR__ . '/tag/class.Param.php';
+require_once __DIR__ . '/tag/class.Embed.php';
 
 require_once __DIR__ . '/tag/ext/class.InputText.php';
 require_once __DIR__ . '/tag/ext/class.InputRadio.php';
@@ -70,6 +74,8 @@ require_once __DIR__ . '/doctype/class.DocType.php';
 require_once __DIR__ . '/doctype/class.Html5.php';
 require_once __DIR__ . '/doctype/class.Html401Transitional.php';
 require_once __DIR__ . '/doctype/class.XHtml10Transitional.php';
+
+require_once __DIR__ . '/flash/class.SwfElement.php';
 
 /*
   // Droped developing this

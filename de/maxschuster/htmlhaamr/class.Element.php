@@ -43,6 +43,13 @@ abstract class Element {
     protected $id;
     
     /**
+     * The elements name
+     * @var Attribute
+     */
+    protected $name;
+
+
+    /**
      * The elements class
      * @var Attribute
      */
@@ -215,6 +222,15 @@ abstract class Element {
     public function setId($id) {
         $this->id = new Attribute('id', $id);
         $this->addAttribute($this->id);
+    }
+    
+    /**
+     * Sets the id attribute of the object
+     * @param int $id 
+     */
+    public function setName($name) {
+        $this->name = new Attribute('name', $name);
+        $this->addAttribute($this->name);
     }
 
     /**

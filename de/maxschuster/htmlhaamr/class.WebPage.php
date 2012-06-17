@@ -147,7 +147,7 @@ class WebPage {
         $this->head = new Head();
         $this->html->addContent($this->head, $this->body);
         $this->encoding = $encoding;
-        $this->setMetaGenerator('PHP htmlhaamr');
+        $this->setMetaGenerator('PHP htmlhaamr; https://github.com/maxschuster/htmlhaamr');
         $this->setMetaContentScriptType('text/javascript');
         $this->setMetaContentStyleType('text/css');
         $this->setDoctype($docType ? $docType : new XHtml10Transitional());
