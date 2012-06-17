@@ -191,9 +191,9 @@ abstract class Element {
     /**
      * Constructor
      * If set, it fills the attributes of this element.
-     * @param string $id
-     * @param string $class
-     * @param array $attributes An array of Attributes
+     * @param string $id Uniqe ID
+     * @param string $class Elements class
+     * @param boolean|Attributes[] $attributes An array of Attributes
      */
     public function __construct($id = false, $class = false, $attributes = false) {
         if ($id) {

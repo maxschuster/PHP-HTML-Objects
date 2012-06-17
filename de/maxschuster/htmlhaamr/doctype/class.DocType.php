@@ -19,18 +19,52 @@
 namespace de\maxschuster\htmlhaamr\doctype;
 
 /**
- * This class has no Description...
+ * Baseclass for doctypes
  * @author Max Schuster 
  * @package htmlhaamr
+ * @abstract
  */
 abstract class DocType {
+    /**
+     * Defines if doctype and xml prefix should be switched
+     * @var boolean
+     */
     protected $doctypeSwitch = false;
+    
+    /**
+     * The doctype text
+     * @var string
+     */
     protected $doctype = '';
+    
+    /**
+     * Defines if the xml prefix should be used
+     * @var boolean
+     */
     protected $useXmlPrefix = false;
+    
+    /**
+     * XML prefix
+     * @var string
+     */
     protected $xmlPrefix = '<?xml version="1.0" standalone="yes"%s ?>';
+    
+    /**
+     * Encoding
+     * @var string
+     */
     protected $encoding = '';
+    
+    /**
+     * Defines if self closing tags must be closed with a slash
+     * @var boolean
+     */
     protected $closeTagsWithSlash = true;
-
+    
+    /**
+     * Sets encoding
+     * @param string $encoding Encoding
+     */
     public function setEncoding($encoding) {
         $this->encoding = $encoding;
     }
@@ -43,15 +77,26 @@ abstract class DocType {
         return $this->closeTagsWithSlash;
     }
     
+    /**
+     * Returns the xml prefix with encoding
+     * @return string
+     */
     protected function getXmlPrefix() {
         $encoding = $this->encoding ? 'encoding="'.$this->encoding.'"' : '';
         return sprintf($this->xmlPrefix, $encoding);
     }
-
+    
+    /**
+     * Sets doctype switch activation
+     * @param boolean $val
+     */
     public function useDoctypeSwitch($val = true) {
         $this->doctypeSwitch = $val;
     }
-
+    
+    /**
+     * @return string
+     */
     public function __toString() {
         return
                 ($this->doctypeSwitch || !$this->useXmlPrefix ? "" : $this->getXmlPrefix() . "\n") .
@@ -60,10 +105,18 @@ abstract class DocType {
         ;
     }
     
+    /**
+     * Gets the encoding
+     * @return string
+     */
     public function getEncoding() {
         return $this->encoding;
     }
-
+    
+    /**
+     * Constructor
+     * @param string $encoding
+     */
     function __construct($encoding = 'UTF-8') {
         $this->encoding = $encoding;
     }

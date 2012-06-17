@@ -43,7 +43,14 @@ abstract class ContainigElement extends Element {
      * @var boolean 
      */
     protected $hasContent = false;
-
+    
+    /**
+     * Constructor
+     * @param Element|string $content Content to add
+     * @param string $id Unique id
+     * @param string $class Elements class
+     * @param boolean|Attributes[] $attributes An array of Attributes
+     */
     public function __construct($content = false, $id = false, $class = false, $attributes = false) {
         if ($content) {
             $this->addContent($content);

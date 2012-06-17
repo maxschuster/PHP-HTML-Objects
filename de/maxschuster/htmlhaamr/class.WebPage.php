@@ -321,7 +321,7 @@ class WebPage {
 
     /**
      * Adds a stylesheet to the page
-     * @param string $href 
+     * @param string $href Url of the stylesheet
      */
     public function addStylesheet($href) {
         $style = new LinkStylesheet();
