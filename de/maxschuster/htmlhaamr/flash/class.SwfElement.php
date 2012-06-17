@@ -1,7 +1,5 @@
 <?php
 
-// Have no idea how to solve this...
-
 /*
  * Copyright 2012 Max Schuster 
  * 
