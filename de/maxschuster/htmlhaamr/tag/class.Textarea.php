@@ -47,6 +47,15 @@ class Textarea extends ContainigElement {
         $this->rel = new Attribute('rel', $val);
         $this->addAttribute($this->rel);
     }
+    
+    /**
+     * Returns the element as String
+     * Remove linebreaks inside this elementtype
+     * @return string
+     */
+    public function __toString() {
+        return sprintf("<%s%s%s>%s</%s>\n", $this->tagname, $this->attributesCount() > 0 ? ' ' : '', $this->attributesToString(), implode('', $this->content), $this->tagname);
+    }
 
 }
 

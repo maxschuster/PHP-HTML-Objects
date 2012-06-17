@@ -48,7 +48,7 @@ class Attribute {
 
     public function __construct($name, $value, $quoteStyle = self::QUOTESTYLE_DOUBLE) {
         $this->name = &$name;
-        $this->value = $this->htmlentities($value);
+        $this->value = &$value;
         $this->setQuoteStyle($quoteStyle);
     }
     public function setQuoteStyle($quoteStyle) {
@@ -68,7 +68,7 @@ class Attribute {
     }
 
     public function __toString() {
-        return sprintf('%s=%s%s%s', $this->name, $this->quoteStyle, $this->value, $this->quoteStyle);
+        return sprintf('%s=%s%s%s', $this->name, $this->quoteStyle, $this->htmlentities($this->value), $this->quoteStyle);
     }
 
     public function getName() {

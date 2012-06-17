@@ -38,7 +38,7 @@ $webPage->addScriptSrc('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery
 
 $startTime = microtime(true);
 
-for ($i = 0; $i < 1000; $i++) {
+for ($i = 0; $i < 100; $i++) {
     // Create a new div
     $div = new tag\Div();
     
@@ -50,8 +50,13 @@ for ($i = 0; $i < 1000; $i++) {
     
     // Set some options of the link
     $link->setHref('http://www.google.com');
-    $link->setOnClick('alert("Computer sagt: NEEEEEEIN"); return false;');
-    $div->addAttribute(new Attribute('style', 'margin: 5px; background: #ccc;'));
+    $link->setOnClick('alert("Computer says nah"); return false;');
+    
+    // And some styles to the div...
+    $div->setStyles(array(
+        'background' => '#ccc',
+        'margin' => '5px'
+    ));
     $div->setClass('test-class');
     
     // Add the div to the webpages body tag
@@ -64,5 +69,8 @@ $totalTime = $endTime - $startTime;
 
 $webPage->body->addContent(new tag\P('Total time: ' . $totalTime . ' s'))   ;
 
+$webPage->setFaviconHref('res/favicon.ico');
+
 echo $webPage;
+
 ?>

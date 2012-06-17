@@ -46,7 +46,7 @@ $swf = new SwfElement('res/test.swf', 50, 50);
 $div->addContent($p, $swf);
 
 // Set some options
-$div->addAttribute(new Attribute('style', 'background:#ccc'));
+$div->setStyle('background', '#ccc');
 $swf->setWidth('100%');
 $swf->setHeight('100%');
 

@@ -17,6 +17,8 @@
  */
 
 namespace de\maxschuster\htmlhaamr;
+use de\maxschuster\htmlhaamr\css\StyleCollection;
+use de\maxschuster\htmlhaamr\exception\HtmlHaamrExeption;
 
 /**
  * Base class for all HTML elements.
@@ -47,7 +49,12 @@ abstract class Element {
      * @var Attribute
      */
     protected $name;
-
+    
+    /**
+     * All styles of the Element
+     * @var StyleCollection
+     */
+    protected $styles;
 
     /**
      * The elements class
@@ -206,13 +213,44 @@ abstract class Element {
      * @abstract
      */
     abstract public function __toString();
-
+    
+    /**
+     * Adds a style to the Element
+     * @param string $style
+     * Name of the style
+     * @param string $value
+     * Value of the style
+     */
+    public function setStyle($style, $value) {
+        if (!$this->styles) {
+            $this->styles = new StyleCollection();
+            $this->attributes['style'] = new Attribute('style', $this->styles);
+        }
+        $this->styles->setStyle($style, $value);
+    }
+    
+    /**
+     * Sets multible styles at once
+     * @param array $styleArr
+     * Array with the name of the style as key
+     * and the styles value as value
+     */
+    public function setStyles(array $styleArr) {
+        foreach ($styleArr as $style => $value) {
+            $this->setStyle($style, $value);
+        }
+    }
+    
     /**
      * Adds or replaces an attribute
      * @param Attribute $attr 
      */
     public function addAttribute(Attribute $attr) {
-        $this->attributes[$attr->getName()] = $attr;
+        $attrName = $attr->getName();
+        if ($attrName == 'style') {
+            throw new HtmlHaamrExeption('Its not allowed to set the attribute style manualy! Please use $this->setStyle() instead!');
+        }
+        $this->attributes[$attrName] = $attr;
     }
 
     /**

@@ -168,7 +168,7 @@ class SwfElement extends Object {
         $this->paramWidth->setValue($width);
     }
 
-        function __construct($src, $width, $height, $allowFullscreen = 'true', $allowScriptAccess = 'true', $flashVars = '', $wMode = self::WMODE_WINDOW) {
+    function __construct($src, $width, $height, $allowFullscreen = 'true', $allowScriptAccess = 'true', $flashVars = '', $wMode = self::WMODE_WINDOW) {
         parent::__construct();
         $this->embed = new Embed();
         $this->setClassId('clsid:D27CDB6E-AE6D-11cf-96B8-444553540000');

@@ -20,7 +20,6 @@ require '../de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
 
 use de\maxschuster\htmlhaamr\WebPage;
 use de\maxschuster\htmlhaamr\tag;
-use de\maxschuster\htmlhaamr\Attribute;
 use de\maxschuster\htmlhaamr\doctype\Html401Transitional;
 
 // Create a HTML 4.01 doctype
@@ -35,13 +34,19 @@ $div = new tag\Div();
 // Create a new link
 $link = new tag\A('Visit Google!');
 
+// Create an Image
+$image = new tag\Img();
+$image->setSrc('res/htmlhaamr.png');
+
 // Add the link to the div
-$div->addContent($link);
+$div->addContent($link, $image);
+
+
 
 // Set some options
-$div->addAttribute(new Attribute('style', 'background:#ccc'));
+$div->setStyle('background', '#ccc');
 $link->setHref('http://www.google.de/');
-$link->setOnClick("return confirm('Want to Visit Google in a new Tab?');");
+$link->setOnClick("return confirm('Want to visit Google in a new tab?');");
 $link->setTarget(tag\A::TARGET_BLANK);
 
 // Add the div to the pages content

@@ -19,6 +19,7 @@
 namespace de\maxschuster\htmlhaamr\tag;
 
 use de\maxschuster\htmlhaamr\SelfClosingElement;
+use de\maxschuster\htmlhaamr\Attribute;
 
 /**
  * This class has no Description...

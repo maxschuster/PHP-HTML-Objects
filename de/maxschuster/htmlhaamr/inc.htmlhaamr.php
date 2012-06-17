@@ -59,6 +59,9 @@ require_once __DIR__ . '/tag/class.Object.php';
 require_once __DIR__ . '/tag/class.Param.php';
 require_once __DIR__ . '/tag/class.Embed.php';
 
+require_once __DIR__ . '/css/class.StyleCollection.php';
+require_once __DIR__ . '/css/class.StyleDefinition.php';
+
 require_once __DIR__ . '/tag/ext/class.InputText.php';
 require_once __DIR__ . '/tag/ext/class.InputRadio.php';
 require_once __DIR__ . '/tag/ext/class.InputCheckbox.php';

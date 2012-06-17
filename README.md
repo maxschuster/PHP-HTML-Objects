@@ -1,6 +1,6 @@
 HTML Haamr
 ==========
-This project tries to build an object oriented structure for html in PHP.
+This project tries to build an object oriented structure for HTML in PHP.
 
 Requires PHP 5.3!
 
@@ -8,11 +8,10 @@ Short example:
 --------------
     <?php
     
-    require '../de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
+    require 'phar://htmlhaamr.phar';
     
     use de\maxschuster\htmlhaamr\WebPage;
     use de\maxschuster\htmlhaamr\tag;
-    use de\maxschuster\htmlhaamr\Attribute;
     use de\maxschuster\htmlhaamr\doctype\Html401Transitional;
     
     // Create a HTML 4.01 doctype
@@ -31,7 +30,7 @@ Short example:
     $div->addContent($link);
     
     // Set some options
-    $div->addAttribute(new Attribute('style', 'background:#ccc'));
+    $div->setStyle('background', '#ccc');
     $link->setHref('http://www.google.de/');
     $link->setOnClick("return confirm('Want to Visit Google in a new Tab?');");
     $link->setTarget(tag\A::TARGET_BLANK);
@@ -82,6 +81,13 @@ Supported Doctypes
 * HTML 4.01 Transitional
 * XHTML 1.0 Transitional
 * HTML 5
+
+Extending HTML tags to build custom controls
+--------------------------------------------
+It is possible to build custom controls by extending exisiting tags
+Take this as example:
+
+    \de\maxschuster\htmlhaamr\flash\class.SwfElement.php
 
 Exporting as PHAR (PHP archive)
 -------------------------------
