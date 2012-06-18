@@ -18,6 +18,7 @@
 
 namespace de\maxschuster\htmlhaamr;
 use de\maxschuster\htmlhaamr\exception\HtmlHaamrExeption;
+use de\maxschuster\htmlhaamr\WebPage;
 
 /**
  * Represents an attribute of an Element
@@ -78,11 +79,12 @@ class Attribute {
     
     /**
      * Htmlentities adapted to this project
+     * Uses WebPage::$globalEncoding to set encoding
      * @param string $string String to escape
      * @return string Escaped string
      */
     protected function htmlentities($string) {
-        return htmlentities($string, ENT_COMPAT, 'UTF-8');
+        return htmlentities($string, ENT_COMPAT, WebPage::getGlobalEncoding());
     }
     
     /**

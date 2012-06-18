@@ -55,6 +55,8 @@ $webPage->body->addContent($div);
 // Set the pages favicon
 $webPage->setFaviconHref('res/favicon.ico');
 
+$webPage->setMetaRobots(WebPage::ROBOTS_NOINDEX_NOFOLLOW);
+
 // Echo the webpage
 echo $webPage;
 
