@@ -69,7 +69,11 @@ require_once __DIR__ . '/tag/ext/class.InputSubmit.php';
 require_once __DIR__ . '/tag/ext/class.InputButton.php';
 require_once __DIR__ . '/tag/ext/class.LinkStylesheet.php';
 
-require_once __DIR__ . '/exception/class.HtmlHaamrExeption.php';
+require_once __DIR__ . '/exception/class.HtmlHaamrException.php';
+require_once __DIR__ . '/exception/class.UnknownQuotestyleException.php';
+require_once __DIR__ . '/exception/class.ForbiddenAttributeException.php';
+require_once __DIR__ . '/exception/class.UnknownMimeTypeException.php';
+require_once __DIR__ . '/exception/class.EmptyValueException.php';
 
 require_once __DIR__ . '/class.MimeAnalyser.php';
 

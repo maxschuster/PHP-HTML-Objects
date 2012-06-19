@@ -20,7 +20,6 @@ require '../de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
 
 use de\maxschuster\htmlhaamr\WebPage;
 use de\maxschuster\htmlhaamr\tag;
-use de\maxschuster\htmlhaamr\Attribute;
 use de\maxschuster\htmlhaamr\doctype\Html401Transitional;
 use de\maxschuster\htmlhaamr\flash\SwfElement;
 

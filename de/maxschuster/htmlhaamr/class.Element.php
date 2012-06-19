@@ -18,7 +18,7 @@
 
 namespace de\maxschuster\htmlhaamr;
 use de\maxschuster\htmlhaamr\css\StyleCollection;
-use de\maxschuster\htmlhaamr\exception\HtmlHaamrExeption;
+use de\maxschuster\htmlhaamr\exception\ForbiddenAttributeException;
 
 /**
  * Base class for all HTML elements.
@@ -248,7 +248,7 @@ abstract class Element {
     public function addAttribute(Attribute $attr) {
         $attrName = $attr->getName();
         if ($attrName == 'style') {
-            throw new HtmlHaamrExeption('Its not allowed to set the attribute style manualy! Please use $this->setStyle() instead!');
+            throw new ForbiddenAttributeException('Its not allowed to set the attribute style manualy! Please use $this->setStyle() instead!');
         }
         $this->attributes[$attrName] = $attr;
     }

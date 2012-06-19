@@ -17,7 +17,7 @@
  */
 
 namespace de\maxschuster\htmlhaamr\css;
-use de\maxschuster\htmlhaamr\exception\HtmlHaamrExeption;
+use de\maxschuster\htmlhaamr\exception\EmptyValueException;
 
 /**
  * Description of StyleCollection
@@ -45,14 +45,14 @@ class StyleCollection {
      */
     public function setStyle($style, $value = false) {
         if (empty($style)) {
-            throw new HtmlHaamrExeption('$style must not be empty!');
+            throw new EmptyValueException('$style must not be empty!');
         }
         if ($style instanceof Style) {
             $this->styles[$style->getName()] = $style;
             return;
         }
         if (empty($value)) {
-            throw new HtmlHaamrExeption('If $style is no instance of StyleDefinition $value must not be empty!');
+            throw new EmptyValueException('If $style is no instance of StyleDefinition $value must not be empty!');
         }
         $this->styles[$style] = new StyleDefinition($style, $value);
     }

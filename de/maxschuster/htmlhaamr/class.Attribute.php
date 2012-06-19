@@ -17,7 +17,7 @@
  */
 
 namespace de\maxschuster\htmlhaamr;
-use de\maxschuster\htmlhaamr\exception\HtmlHaamrExeption;
+use de\maxschuster\htmlhaamr\exception\UnknownQuotestyleException;
 
 /**
  * This class has no Description...
@@ -60,7 +60,7 @@ class Attribute {
             $this->quoteStyle = '\'';
             return;
         }
-        throw new HtmlHaamrExeption('Unknown quotesyle! ('.$quoteStyle.')');
+        throw new UnknownQuotestyleException('Unknown quotesytle! ('.$quoteStyle.')');
     }
 
     protected function htmlentities($string) {

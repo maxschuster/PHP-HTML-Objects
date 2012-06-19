@@ -28,7 +28,7 @@ use de\maxschuster\htmlhaamr\tag\Script;
 use de\maxschuster\htmlhaamr\tag\ext\LinkStylesheet;
 use de\maxschuster\htmlhaamr\doctype\XHtml10Transitional;
 use de\maxschuster\htmlhaamr\tag\Link;
-use de\maxschuster\htmlhaamr\exception\HtmlHaamrExeption;
+use de\maxschuster\htmlhaamr\exception\UnknownMimeTypeException;
 
 /**
  * Represents the whole webpage with its parts (the html, body and head blocks)
@@ -335,13 +335,13 @@ class WebPage {
      * @param string $mime [optional]
      * The favicons mimetype. If not set the method
      * will try to resolve it by the filename
-     * @throws HtmlHaamrException
+     * @throws UnknownMimeTypeException
      */
     public function setFaviconHref($href, $mime = false) {
         if (empty($mime)) {
             $mime = MimeAnalyser::getByUrl($href);
             if (empty($mime)) {
-                throw new HtmlHaamrExeption('Could not resolve mimetype! Please use the $mime parameter, too');
+                throw new UnknownMimeTypeException('Could not resolve mimetype! Please use the $mime parameter, too');
             }
         }
         if (!$this->shortcutIcon) {

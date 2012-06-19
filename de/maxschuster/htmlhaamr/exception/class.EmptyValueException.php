@@ -2,14 +2,14 @@
 
 namespace de\maxschuster\htmlhaamr\exception;
 
-use \Exception;
+use de\maxschuster\htmlhaamr\exception\HtmlHaamrException;
 
 /**
  * Description of class
  *
  * @author maxschuster
  */
-class HtmlHaamrExeption extends Exception {
+class EmptyValueException extends HtmlHaamrException {
     
 }
 
