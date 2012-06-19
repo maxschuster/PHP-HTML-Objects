@@ -37,8 +37,43 @@ use de\maxschuster\htmlhaamr\exception\UnknownMimeTypeException;
  * @package htmlhaamr
  */
 class WebPage {
-    public static $closeHtmlTagsWithSlash = true;
+    /**
+     * Deny robots to index the page
+     */
+    const ROBOTS_NOINDEX = 'noindex';
     
+    /**
+     * Allow robots to index the page
+     */
+    const ROBOTS_INDEX = 'index';
+    
+    /**
+     * Deny robots tho follow links on the page
+     */
+    const ROBOTS_NOFOLLOW = 'nofollow';
+    
+    /**
+     * Deny robots to index the page and any of its links
+     */
+    const ROBOTS_NOINDEX_NOFOLLOW = 'noindex, nofollow';
+    
+    /**
+     * Allow robots to index and follow your page
+     */
+    const ROBOTS_ALL = 'all';
+
+    /**
+     * Defines if self closing elements should be closed with a slash
+     * @var boolean 
+     */
+    protected static $closeHtmlTagsWithSlash = true;
+    
+    /**
+     * Global encoding standard is 'UTF-8'
+     * @var string
+     */
+    protected static $globalEncoding = 'UTF-8';
+
     /**
      * The pages HTML block
      * @var Html 
@@ -62,7 +97,6 @@ class WebPage {
      * @var Title
      */
     public $title;
-    public $encoding;
 
     /**
      * Content-Type meta tag
@@ -132,21 +166,15 @@ class WebPage {
     protected $doctype;
 
     /**
-     * jQueryContainer
-     * @var jQueryCointainer
-     */
-    //public $jQueryContainer;
-
-    /**
      * Constructor
      * Fills the properties of this class with some default values.
      */
-    public function __construct(DocType $docType = null, $encoding = 'UTF-8') {
+    public function __construct(DocType $docType = null, $globalEncoding = 'UTF-8') {
         $this->html = new Html();
         $this->body = new Body();
         $this->head = new Head();
         $this->html->addContent($this->head, $this->body);
-        $this->encoding = $encoding;
+        self::setGlobalEncoding($globalEncoding);
         $this->setMetaGenerator('PHP htmlhaamr; https://github.com/maxschuster/htmlhaamr');
         $this->setMetaContentScriptType('text/javascript');
         $this->setMetaContentStyleType('text/css');
@@ -159,18 +187,42 @@ class WebPage {
      * @return string
      */
     public function __toString() {
-        $this->setMetaContentType('text/html; charset=' . $this->encoding);
-        $this->doctype->setEncoding($this->encoding);
-        header('Content-type: text/html; charset=' . $this->encoding);
+        $this->setMetaContentType('text/html; charset=' . self::$globalEncoding);
+        $this->doctype->setEncoding(self::$globalEncoding);
+        header('Content-type: text/html; charset=' . self::$globalEncoding);
         return sprintf("%s\n%s", $this->doctype, $this->html);
     }
 
     /**
-     * Sets the encoding of the page
-     * @param string $encodingType 
+     * Sets the global encoding
+     * @param string $encodingType Type The encoding
      */
-    public function setEncoding($encoding) {
-        $this->encoding = $encoding;
+    public static function setGlobalEncoding($globalEncoding) {
+        self::$globalEncoding = $globalEncoding;
+    }
+    
+    /**
+     * Gets the global encoding
+     * @return string Type The encoding
+     */
+    public static function getGlobalEncoding() {
+        return self::$globalEncoding;
+    }
+    
+    /**
+     * Sets close html tags with slash
+     * @param boolean $closeHtmlTagsWithSlash Use it yes or no
+     */
+    public static function setCloseHtmlTagsWithSlash($closeHtmlTagsWithSlash) {
+        self::$closeHtmlTagsWithSlash = $closeHtmlTagsWithSlash;
+    }
+    
+    /**
+     * Gets close html tags with slash
+     * @return boolean
+     */
+    public static function getCloseHtmlTagsWithSlash() {
+        return self::$closeHtmlTagsWithSlash;
     }
 
     /**
@@ -178,7 +230,7 @@ class WebPage {
      * @param DocType $doctype
      */
     public function setDoctype(DocType $doctype) {
-        $doctype->setEncoding($this->encoding);
+        $doctype->setEncoding(self::$globalEncoding);
         self::$closeHtmlTagsWithSlash = $doctype->getCloseTagsWithSlash();
         $this->doctype = $doctype;
     }
@@ -321,7 +373,7 @@ class WebPage {
 
     /**
      * Adds a stylesheet to the page
-     * @param string $href 
+     * @param string $href Url of the stylesheet
      */
     public function addStylesheet($href) {
         $style = new LinkStylesheet();

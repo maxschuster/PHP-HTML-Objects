@@ -22,6 +22,7 @@ namespace de\maxschuster\htmlhaamr\css;
  * Description of Style
  *
  * @author Max
+ * @package htmlhaamr
  */
 class StyleDefinition {
     /**
@@ -36,27 +37,51 @@ class StyleDefinition {
      */
     protected $value;
     
+    /**
+     * Constructor
+     * @param string $name Style name
+     * @param string $value Style value
+     */
     function __construct($name, $value) {
         $this->name = $name;
         $this->value = $value;
     }
-
+    
+    /**
+     * Style name
+     * @return string
+     */
     public function getName() {
         return $this->name;
     }
-
+    
+    /**
+     * Sets the style name
+     * @param string $name Style name
+     */
     public function setName($name) {
         $this->name = $name;
     }
-
+    
+    /**
+     * Style value
+     * @return type
+     */
     public function getValue() {
         return $this->value;
     }
-
+    
+    /**
+     * Sets the style value
+     * @param string $value Style value
+     */
     public function setValue($value) {
         $this->value = $value;
     }
-
+    
+    /**
+     * @return string
+     */
     public function __toString() {
         return sprintf('%s: %s;', $this->getName(), $this->getValue());
     }

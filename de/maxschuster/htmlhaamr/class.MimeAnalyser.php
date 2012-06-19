@@ -23,6 +23,7 @@ namespace de\maxschuster\htmlhaamr;
  * the right mimetype
  *
  * @author Max Schuster
+ * @package htmlhaamr
  */
 class MimeAnalyser {
     /**

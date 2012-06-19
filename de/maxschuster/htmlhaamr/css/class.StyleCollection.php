@@ -20,9 +20,10 @@ namespace de\maxschuster\htmlhaamr\css;
 use de\maxschuster\htmlhaamr\exception\EmptyValueException;
 
 /**
- * Description of StyleCollection
+ * Collects StyleDefinitions
  *
  * @author Max Schuster
+ * @package htmlhaamr
  */
 class StyleCollection {
     /**
@@ -31,6 +32,9 @@ class StyleCollection {
      */
     protected $styles = array();
     
+    /**
+     * @return string
+     */
     public function __toString() {
         return implode(' ', $this->styles);
     }

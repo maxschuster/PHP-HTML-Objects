@@ -18,14 +18,22 @@
 
 namespace de\maxschuster\htmlhaamr;
 use de\maxschuster\htmlhaamr\exception\UnknownQuotestyleException;
+use de\maxschuster\htmlhaamr\WebPage;
 
 /**
- * This class has no Description...
+ * Represents an attribute of an Element
  * @author Max Schuster 
  * @package htmlhaamr
  */
 class Attribute {
+    /**
+     * Single quote style (attr='val')
+     */
     const QUOTESTYLE_SINGLE = 0;
+    
+    /**
+     * Double quote style (attr="val")
+     */
     const QUOTESTYLE_DOUBLE = 1;
     
     /**
@@ -45,7 +53,13 @@ class Attribute {
      * @var string
      */
     protected $quoteStyle;
-
+    
+    /**
+     * Constructor
+     * @param string $name Attributes name
+     * @param string $value Attributes value
+     * @param integer $quoteStyle Attribute::QUOTESTYLE_*
+     */
     public function __construct($name, $value, $quoteStyle = self::QUOTESTYLE_DOUBLE) {
         $this->name = &$name;
         $this->value = &$value;
@@ -62,19 +76,37 @@ class Attribute {
         }
         throw new UnknownQuotestyleException('Unknown quotesytle! ('.$quoteStyle.')');
     }
-
+    
+    /**
+     * Htmlentities adapted to this project
+     * Uses WebPage::$globalEncoding to set encoding
+     * @param string $string String to escape
+     * @return string Escaped string
+     */
     protected function htmlentities($string) {
-        return htmlentities($string, ENT_COMPAT, 'UTF-8');
+        return htmlentities($string, ENT_COMPAT, WebPage::getGlobalEncoding());
     }
-
+    
+    /**
+     * 
+     * @return string
+     */
     public function __toString() {
         return sprintf('%s=%s%s%s', $this->name, $this->quoteStyle, $this->htmlentities($this->value), $this->quoteStyle);
     }
-
+    
+    /**
+     * The name of the Attribute
+     * @return string
+     */
     public function getName() {
         return $this->name;
     }
-
+    
+    /**
+     * The attributes value
+     * @return string
+     */
     public function getValue() {
         return $this->value;
     }

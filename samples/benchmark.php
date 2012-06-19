@@ -21,7 +21,6 @@ require '../de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
 
 use de\maxschuster\htmlhaamr\WebPage;
 use de\maxschuster\htmlhaamr\tag;
-use de\maxschuster\htmlhaamr\Attribute;
 use de\maxschuster\htmlhaamr\doctype\Html5;
 
 // Create a HTML5 doctype
@@ -50,7 +49,7 @@ for ($i = 0; $i < 100; $i++) {
     
     // Set some options of the link
     $link->setHref('http://www.google.com');
-    $link->setOnClick('alert("Computer says nah"); return false;');
+    $link->setOnClick('alert("Computer says nah äüöß"); return false;');
     
     // And some styles to the div...
     $div->setStyles(array(
