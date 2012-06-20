@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-require '../de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
+require 'res/htmlhaamr-20120620134549.phar';
 
 use de\maxschuster\htmlhaamr\WebPage;
 use de\maxschuster\htmlhaamr\tag;

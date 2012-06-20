@@ -18,7 +18,10 @@
 
 define('EXPORT_DIR', './output');
 define('EXPORT_FILE', EXPORT_DIR . '/htmlhaamr.phar');
-define('INPUT_FOLDER', '../de/maxschuster/htmlhaamr');
+
+
+
+define('INPUT_FOLDER', 'de/maxschuster/htmlhaamr');
 
 if (file_exists(EXPORT_FILE)) {
     Phar::unlinkArchive(EXPORT_FILE);
@@ -32,6 +35,9 @@ $p = new Phar(EXPORT_FILE, 0);
 $p->compressFiles(Phar::GZ);
 $p->setSignatureAlgorithm(Phar::SHA1);
 $p->addFile('stub.php');
+
+chdir('..');
+
 if (is_dir(INPUT_FOLDER)) {
     echo "INPUT_FOLDER exisits (".INPUT_FOLDER.") <br />\n";
 } else {
@@ -53,6 +59,7 @@ $p->startBuffering();
 $p->buildFromIterator(new ArrayIterator($files));
 $p->stopBuffering();
 //echo $p->createDefaultStub('stub.php');
+
 $p->setStub($p->createDefaultStub('stub.php'));
 $p = null;
 
