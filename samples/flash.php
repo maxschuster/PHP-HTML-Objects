@@ -55,6 +55,7 @@ $webPage->body->addContent($div);
 // Set the pages favicon
 $webPage->setFaviconHref('res/favicon.ico');
 
+
 // Echo the webpage
 echo $webPage;
 
