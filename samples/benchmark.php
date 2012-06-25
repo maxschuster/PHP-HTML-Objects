@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-// Include htmlhaamr
-require '../de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
+// Include pho
+require '../de/maxschuster/pho/inc.pho.php';
 
-use de\maxschuster\htmlhaamr\WebPage;
-use de\maxschuster\htmlhaamr\tag;
-use de\maxschuster\htmlhaamr\doctype\Html5;
+use de\maxschuster\pho\WebPage;
+use de\maxschuster\pho\tag;
+use de\maxschuster\pho\doctype\Html5;
 
 // Create a HTML5 doctype
 $html5DocType = new Html5();
@@ -68,7 +68,7 @@ $totalTime = $endTime - $startTime;
 
 $webPage->body->addContent(new tag\P('Total time: ' . $totalTime . ' s'))   ;
 
-$webPage->setFaviconHref('res/favicon.ico');
+$webPage->setFaviconHref('res/PHO_logo.png');
 
 echo $webPage;
 

@@ -16,6 +16,24 @@
  * limitations under the License.
  */
 
-require_once 'de/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace de\maxschuster\pho;
+
+/**
+ * Base class for all HTML elements that can not contain content
+ * @author Max Schuster 
+ * @abstract
+ * @package pho
+ */
+abstract class SelfClosingElement extends Element {
+
+    /**
+     * Returns this element as String
+     * @return string
+     */
+    public function __toString() {
+        return sprintf(WebPage::getCloseHtmlTagsWithSlash() ? "<%s %s />\n" : "<%s %s>\n", $this->tagname, $this->attributesToString());
+    }
+
+}
+
 ?>

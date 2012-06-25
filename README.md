@@ -1,4 +1,4 @@
-HTML Haamr
+PHP HTML Objects (PHO)
 ==========
 This project tries to build an object oriented structure for HTML in PHP.
 
@@ -8,11 +8,11 @@ Short example:
 --------------
     <?php
     
-    require 'phar://htmlhaamr.phar';
+    require 'phar://pho.phar';
     
-    use de\maxschuster\htmlhaamr\WebPage;
-    use de\maxschuster\htmlhaamr\tag;
-    use de\maxschuster\htmlhaamr\doctype\Html401Transitional;
+    use de\maxschuster\pho\WebPage;
+    use de\maxschuster\pho\tag;
+    use de\maxschuster\pho\doctype\Html401Transitional;
     
     // Create a HTML 4.01 doctype
     $doctype = new Html401Transitional();
@@ -52,7 +52,7 @@ Will create the following output:
         "http://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
-    <meta name="generator" content="PHP htmlhaamr">
+    <meta name="generator" content="PHP pho">
     <meta http-equiv="Content-Script-Type" content="text/javascript">
     <meta http-equiv="Content-Style-Type" content="text/css">
     <link rel="shortcut icon" href="res/favicon.ico" type="image/x-icon">
@@ -87,7 +87,7 @@ Extending HTML tags to build custom controls
 It is possible to build custom controls by extending exisiting tags.
 Take this file as example:
 
-    \de\maxschuster\htmlhaamr\flash\class.SwfElement.php
+    \de\maxschuster\pho\flash\class.SwfElement.php
 
 Exporting as PHAR (PHP archive)
 -------------------------------
@@ -101,11 +101,11 @@ Than you could run
     
 to create a phar of this project. It will be stored as 
 
-    /phar/htmlhaamr.phar
+    /phar/pho.phar
     
 If you are using a webbrowser you could use
 
-    http://htmlhaamrhost/phar/make?download
+    http://phohost/phar/make?download
 
 to directly download the phar.
 
@@ -117,7 +117,7 @@ If you use the phar just do this:
     
 If you want to use the php scripts directly do this:
 
-    require '/path/to/this/project/de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
+    require '/path/to/this/project/de/maxschuster/pho/inc.pho.php';
 
 TODOs
 -----

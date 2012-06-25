@@ -16,6 +16,22 @@
  * limitations under the License.
  */
 
-require_once 'de/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace de\maxschuster\pho\tag\ext;
+
+use de\maxschuster\pho\tag\Link;
+
+/**
+ * Description of class
+ *
+ * @author maxschuster
+ */
+class LinkStylesheet extends Link {
+    
+    public function __construct($id = false, $class = false, $attributes = false) {
+        parent::__construct($id, $class, $attributes);
+        $this->setRel('stylesheet');
+        $this->setMedia('all');
+    }
+}
+
 ?>

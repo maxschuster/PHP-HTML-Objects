@@ -16,6 +16,23 @@
  * limitations under the License.
  */
 
-require_once 'de/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace de\maxschuster\pho\tag;
+
+use de\maxschuster\pho\SelfClosingElement;
+
+/**
+ * This class has no Description...
+ * @author Max Schuster 
+ * @package pho
+ */
+class Br extends SelfClosingElement {
+
+    protected $tagname = 'br';
+
+    public function __construct() {
+        parent::__construct();
+    }
+
+}
+
 ?>

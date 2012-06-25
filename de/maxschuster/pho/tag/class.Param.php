@@ -16,6 +16,27 @@
  * limitations under the License.
  */
 
-require_once 'de/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace de\maxschuster\pho\tag;
+
+use de\maxschuster\pho\SelfClosingElement;
+use de\maxschuster\pho\Attribute;
+
+/**
+ * This class has no Description...
+ * @author Max Schuster 
+ * @package pho
+ */
+class Param extends SelfClosingElement {
+
+    protected $tagname = 'param';
+    
+    protected $value;
+    
+    public function setValue($value) {
+        $this->value = new Attribute('value', $value);
+        $this->addAttribute($this->value);
+    }
+
+}
+
 ?>

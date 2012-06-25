@@ -17,17 +17,17 @@
  */
 
 define('EXPORT_DIR', './output');
-define('EXPORT_FILE', EXPORT_DIR . '/htmlhaamr.phar');
+define('EXPORT_FILE', EXPORT_DIR . '/pho.phar');
 
 
 
-define('INPUT_FOLDER', 'de/maxschuster/htmlhaamr');
+define('INPUT_FOLDER', 'de/maxschuster/pho');
 
 if (file_exists(EXPORT_FILE)) {
     Phar::unlinkArchive(EXPORT_FILE);
 }
 
-echo "Building htmlhaamr...<br />\n";
+echo "Building PHP HTML Objects... <br />\n";
 
 if (!is_dir(EXPORT_DIR))
     mkdir(EXPORT_DIR);
@@ -63,7 +63,7 @@ $p->stopBuffering();
 $p->setStub($p->createDefaultStub('stub.php'));
 $p = null;
 
-echo "Building HTML Haamr...Finished<br />\n";
+echo "...Finished<br />\n";
 
 if (isset($_GET['download'])) {
     echo '<p>Download will start shortly...</p>';
@@ -72,14 +72,7 @@ if (isset($_GET['download'])) {
 
 function isInHiddenFolder($folder) {
     $folderArr = explode(DIRECTORY_SEPARATOR, $folder);
-    #var_dump($folderArr);
-    #die();
     foreach ($folderArr as $f) {
-        /*
-        if ($f{0} == '.') {
-            return true;
-        }
-        */
         if (preg_match('/^\.{1}\w+$/', $f)) {
             return true;
         }

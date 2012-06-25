@@ -16,6 +16,17 @@
  * limitations under the License.
  */
 
-require_once 'de/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace de\maxschuster\pho\doctype;
+
+/**
+ * Description of HtmlTransitional
+ *
+ * @author mschuster
+ */
+class Html5 extends DocType {
+
+    protected $doctype = '<!DOCTYPE html>';
+
+}
+
 ?>

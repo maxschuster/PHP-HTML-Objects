@@ -20,7 +20,7 @@ $date = @gmdate('YmdHis');
 
 header("Content-Type: application/force-download");
 header('Content-Description: File Transfer');
-header('Content-disposition: attachment; filename=htmlhaamr-'.$date.'.phar');
-$f = fopen('output/htmlhaamr.phar', 'r');
+header('Content-disposition: attachment; filename=pho-'.$date.'.phar');
+$f = fopen('output/pho.phar', 'r');
 fpassthru($f);
 ?>

@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-require '../de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
+require '../de/maxschuster/pho/inc.pho.php';
 
-use de\maxschuster\htmlhaamr\WebPage;
-use de\maxschuster\htmlhaamr\tag;
-use de\maxschuster\htmlhaamr\doctype\Html401Transitional;
+use de\maxschuster\pho\WebPage;
+use de\maxschuster\pho\tag;
+use de\maxschuster\pho\doctype\Html401Transitional;
 
 // Create a HTML 4.01 doctype
 $doctype = new Html401Transitional();
@@ -36,7 +36,7 @@ $link = new tag\A('Visit Google!');
 
 // Create an Image
 $image = new tag\Img();
-$image->setSrc('res/htmlhaamr.png');
+$image->setSrc('res/PHO_logo.png');
 
 // Add the link to the div
 $div->addContent($link, $image);
@@ -53,7 +53,7 @@ $link->setTarget(tag\A::TARGET_BLANK);
 $webPage->body->addContent($div);
 
 // Set the pages favicon
-$webPage->setFaviconHref('res/favicon.ico');
+$webPage->setFaviconHref('res/PHO_logo.png');
 
 $webPage->setMetaRobots(WebPage::ROBOTS_NOINDEX_NOFOLLOW);
 

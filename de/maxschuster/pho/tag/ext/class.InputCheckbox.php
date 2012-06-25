@@ -16,6 +16,25 @@
  * limitations under the License.
  */
 
-require_once 'de/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace de\maxschuster\pho\tag\ext;
+
+use de\maxschuster\pho\tag\Input;
+use de\maxschuster\pho\Attribute;
+
+/**
+ * This class has no Description...
+ * @author Max Schuster 
+ * @package pho
+ */
+class InputCheckbox extends Input {
+
+    protected $selected;
+
+    public function __construct($id = false, $class = false, $attributes = false) {
+        parent::__construct($id, $class, $attributes);
+        $this->setType('checkbox');
+    }
+
+}
+
 ?>

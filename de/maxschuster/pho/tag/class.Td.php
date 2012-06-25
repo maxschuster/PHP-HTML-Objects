@@ -16,6 +16,26 @@
  * limitations under the License.
  */
 
-require_once 'de/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace de\maxschuster\pho\tag;
+
+use de\maxschuster\pho\ContainigElement;
+
+/**
+ * This class has no Description...
+ * @author Max Schuster 
+ * @package pho
+ */
+class Td extends ContainigElement {
+
+    protected $colspan;
+
+    protected $tagname = 'td';
+
+    public function setColspan($colspan) {
+        $this->colspan = new Attribute('colspan', $colspan);
+        $this->attributes['colspan'] = $this->colspan;
+    }
+
+}
+
 ?>

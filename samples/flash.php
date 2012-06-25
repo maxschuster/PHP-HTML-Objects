@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-require '../de/maxschuster/htmlhaamr/inc.htmlhaamr.php';
+require '../de/maxschuster/pho/inc.pho.php';
 
-use de\maxschuster\htmlhaamr\WebPage;
-use de\maxschuster\htmlhaamr\tag;
-use de\maxschuster\htmlhaamr\doctype\Html401Transitional;
-use de\maxschuster\htmlhaamr\flash\SwfElement;
+use de\maxschuster\pho\WebPage;
+use de\maxschuster\pho\tag;
+use de\maxschuster\pho\doctype\Html401Transitional;
+use de\maxschuster\pho\flash\SwfElement;
 
 // Create a HTML 4.01 doctype
 $doctype = new Html401Transitional();
@@ -53,7 +53,7 @@ $swf->setHeight('100%');
 $webPage->body->addContent($div);
 
 // Set the pages favicon
-$webPage->setFaviconHref('res/favicon.ico');
+$webPage->setFaviconHref('res/PHO_logo.png');
 
 
 // Echo the webpage
