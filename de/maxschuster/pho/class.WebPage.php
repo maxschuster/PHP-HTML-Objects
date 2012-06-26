@@ -175,7 +175,7 @@ class WebPage {
         $this->head = new Head();
         $this->html->addContent($this->head, $this->body);
         self::setGlobalEncoding($globalEncoding);
-        $this->setMetaGenerator('PHP pho; https://github.com/maxschuster/pho');
+        $this->setMetaGenerator('PHP HTML Objects (PHO); https://github.com/maxschuster/PHP-HTML-Objects');
         $this->setMetaContentScriptType('text/javascript');
         $this->setMetaContentStyleType('text/css');
         $this->setDoctype($docType ? $docType : new XHtml10Transitional());
