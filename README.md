@@ -52,7 +52,7 @@ Will create the following output:
         "http://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
-    <meta name="generator" content="PHP pho">
+    <meta name="generator" content="PHP HTML Objects (PHO); https://github.com/maxschuster/PHP-HTML-Objects">
     <meta http-equiv="Content-Script-Type" content="text/javascript">
     <meta http-equiv="Content-Style-Type" content="text/css">
     <link rel="shortcut icon" href="res/favicon.ico" type="image/x-icon">
