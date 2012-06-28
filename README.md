@@ -121,4 +121,4 @@ If you want to use the php scripts directly do this:
 
 TODOs
 -----
-Write more and check spelling ;-)
+Write a lot more and check spelling ;-)
