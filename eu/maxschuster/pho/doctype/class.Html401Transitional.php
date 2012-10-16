@@ -16,6 +16,19 @@
  * limitations under the License.
  */
 
-require_once 'eu/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace eu\maxschuster\pho\doctype;
+
+/**
+ * Description of HtmlTransitional
+ *
+ * @author mschuster
+ */
+class Html401Transitional extends DocType {
+
+    protected $doctype = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">';
+    protected $closeTagsWithSlash = false;
+
+}
+
 ?>

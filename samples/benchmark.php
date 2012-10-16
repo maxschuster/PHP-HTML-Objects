@@ -17,11 +17,11 @@
  */
 
 // Include pho
-require '../de/maxschuster/pho/inc.pho.php';
+require 'res/pho.phar';
 
-use de\maxschuster\pho\WebPage;
-use de\maxschuster\pho\tag;
-use de\maxschuster\pho\doctype\Html5;
+use eu\maxschuster\pho\WebPage;
+use eu\maxschuster\pho\tag;
+use eu\maxschuster\pho\doctype\Html5;
 
 // Create a HTML5 doctype
 $html5DocType = new Html5();

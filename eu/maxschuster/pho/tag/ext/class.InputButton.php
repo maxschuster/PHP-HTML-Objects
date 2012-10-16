@@ -16,6 +16,23 @@
  * limitations under the License.
  */
 
-require_once 'eu/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace eu\maxschuster\pho\tag\ext;
+
+use eu\maxschuster\pho\tag\Input;
+use eu\maxschuster\pho\Attribute;
+
+/**
+ * This class has no Description...
+ * @author Max Schuster 
+ * @package pho
+ */
+class InputButton extends Input {
+
+    public function __construct($content = false, $id = false, $class = false, $attributes = false) {
+        parent::__construct($content, $id, $class, $attributes);
+        $this->setType('button');
+    }
+
+}
+
 ?>
