@@ -16,6 +16,19 @@
  * limitations under the License.
  */
 
-require_once 'eu/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace eu\maxschuster\pho\tag;
+
+use eu\maxschuster\pho\ContainigElement;
+
+/**
+ * This class has no Description...
+ * @author Max Schuster 
+ * @package pho
+ */
+class Li extends ContainigElement {
+
+    protected $tagname = 'li';
+
+}
+
 ?>

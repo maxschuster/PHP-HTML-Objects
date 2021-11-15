@@ -16,6 +16,30 @@
  * limitations under the License.
  */
 
-require_once 'eu/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace eu\maxschuster\pho\tag;
+
+use eu\maxschuster\pho\ContainigElement;
+use eu\maxschuster\pho\Attribute;
+use eu\maxschuster\pho\Element;
+
+/**
+ * This class has no Description...
+ * @author Max Schuster 
+ * @package pho
+ */
+class Label extends ContainigElement {
+
+    protected $for;
+    protected $tagname = 'label';
+
+    public function setFor($val) {
+        if ($val instanceof Element) {
+            $val = $val->getId();
+        }
+        $this->for = new Attribute('for', $val);
+        $this->addAttribute($this->for);
+    }
+
+}
+
 ?>

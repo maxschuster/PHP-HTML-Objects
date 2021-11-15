@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-require '../de/maxschuster/pho/inc.pho.php';
+require 'res/pho.phar';
 
-use de\maxschuster\pho\WebPage;
-use de\maxschuster\pho\tag;
-use de\maxschuster\pho\doctype\Html401Transitional;
-use de\maxschuster\pho\flash\SwfElement;
+use eu\maxschuster\pho\WebPage;
+use eu\maxschuster\pho\tag;
+use eu\maxschuster\pho\doctype\Html401Transitional;
+use eu\maxschuster\pho\flash\SwfElement;
 
 // Create a HTML 4.01 doctype
 $doctype = new Html401Transitional();

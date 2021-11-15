@@ -10,9 +10,9 @@ Short example:
     
     require 'phar://pho.phar';
     
-    use de\maxschuster\pho\WebPage;
-    use de\maxschuster\pho\tag;
-    use de\maxschuster\pho\doctype\Html401Transitional;
+    use eu\maxschuster\pho\WebPage;
+    use eu\maxschuster\pho\tag;
+    use eu\maxschuster\pho\doctype\Html401Transitional;
     
     // Create a HTML 4.01 doctype
     $doctype = new Html401Transitional();
@@ -87,7 +87,7 @@ Extending HTML tags to build custom controls
 It is possible to build custom controls by extending exisiting tags.
 Take this file as example:
 
-    \de\maxschuster\pho\flash\class.SwfElement.php
+    /eu/maxschuster/pho/flash/class.SwfElement.php
 
 Exporting as PHAR (PHP archive)
 -------------------------------
@@ -105,7 +105,7 @@ to create a phar of this project. It will be stored as
     
 If you are using a webbrowser you could use
 
-    http://phohost/phar/make?download
+    http://<phohost>/phar/make?download
 
 to directly download the phar.
 

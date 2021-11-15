@@ -16,6 +16,29 @@
  * limitations under the License.
  */
 
-require_once 'eu/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace eu\maxschuster\pho\tag;
+
+use eu\maxschuster\pho\ContainigElement;
+
+/**
+ * This class has no Description...
+ * @author Max Schuster 
+ * @package pho
+ */
+class Fieldset extends ContainigElement {
+
+    protected $legend;
+    protected $tagname = 'fieldset';
+
+    public function setLegendText($text) {
+        if (!$this->legend) {
+            $this->legend = new Legend ();
+            $this->addContent($this->legend);
+        }
+        $this->legend->clearContent();
+        $this->legend->addContent($text);
+    }
+
+}
+
 ?>

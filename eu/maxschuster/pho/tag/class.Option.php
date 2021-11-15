@@ -16,6 +16,29 @@
  * limitations under the License.
  */
 
-require_once 'eu/maxschuster/pho/inc.pho.php';
-__HALT_COMPILER();
+namespace eu\maxschuster\pho\tag;
+
+use eu\maxschuster\pho\ContainigElement;
+use eu\maxschuster\pho\Attribute;
+
+/**
+ * This class has no Description...
+ * @author Max Schuster 
+ * @package pho
+ */
+class Option extends ContainigElement {
+    /**
+     * Name of the element
+     * @var Attribute
+     */
+    protected $value = false;
+    protected $tagname = 'option';
+    
+    public function setValue($value) {
+        $this->value = new Attribute('value', $value);
+        $this->addAttribute($this->value);
+    }
+
+}
+
 ?>

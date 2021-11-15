@@ -21,7 +21,7 @@ define('EXPORT_FILE', EXPORT_DIR . '/pho.phar');
 
 
 
-define('INPUT_FOLDER', 'de/maxschuster/pho');
+define('INPUT_FOLDER', 'eu/maxschuster/pho');
 
 if (file_exists(EXPORT_FILE)) {
     Phar::unlinkArchive(EXPORT_FILE);
